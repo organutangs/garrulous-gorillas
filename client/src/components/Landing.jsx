@@ -25,40 +25,8 @@ class Landing extends React.Component {
     return (
       <div className='landing'>
         <div className="container">
-          <h1 className="text-center">Moot</h1>
-          <div className='row'>
-            <div className='col-sm-4'>
-              <h2>Foreign Policy</h2>
-            </div>
-            <div className='col-sm-4'>
-              <h1>Law</h1>
-            </div>
-            <div className='col-sm-4'>
-              <h1>Human Rights</h1>
-            </div>
-          </div>
-          <div className='row'>
-            <div className='col-sm-4'>
-              <h1>Finance</h1>
-            </div>
-            <div className='col-sm-4'>
-              <h1>Education</h1>
-            </div>
-            <div className='col-sm-4'>
-              <h1>Climate Change</h1>
-            </div>
-          </div>
-          <div className='row'>
-            <div className='col-sm-4'>
-              <h1>Gun Control</h1>
-            </div>
-            <div className='col-sm-4'>
-              <h1>Fake News</h1>
-            </div>
-            <div className='col-sm-4'>
-              <h1>Marijuana</h1>
-            </div>
-          </div>
+          <h1 className="title">Moot</h1>
+          <h3 className="caption"> All Arguments Accepted </h3>
         </div>
       </div>
     )

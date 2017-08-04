@@ -71,7 +71,15 @@ li.debate-item-style {
 }
 
 .landing {
-    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    background: linear-gradient(
+                     rgba(20,20,20, .5), 
+                     rgba(20,20,20, .5));
+    background: url('https://image.ibb.co/gJvN7F/bg.jpg');
+    background-size: 100%;
+    width: 100vw;
+    height: 100vh;
 }
 
 .landing .row {
@@ -85,3 +93,39 @@ li.debate-item-style {
     width:auto;
     height:auto;
 }
+
+.landing .title {
+    margin-top: -40px;
+    font-size: 140px;
+    font-family: 'Raleway', serif;
+    font-weight: 480;
+    color: #fff;
+}
+
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0px;
+}
+
+.landing .caption {
+    margin-left: 40px;
+    margin-top: -50px;
+    display: inline-block;
+    color: #fcfcfc;
+    font-size: 60px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 100;
+    text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+
+}
+
+.debates {
+    color: #424242;
+    font-family: 'Playfair Display', serif;
+    text-shadow: 2px 2px 1px rgba(150, 150, 150, 1);
+    font-size: 30px;
+
+
+}
+

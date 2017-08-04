@@ -43,8 +43,8 @@ class Main extends React.Component {
     if (!debateIsSelected) {
       return (
         <div>
-        <h1>Debates</h1>
-        <ul>
+        <h4>List of Debates</h4>
+        <ul className='debates'>
         { this.state.debates.map( (debate, i) => <DebateItem debate={debate} key={i} debateSelectHandler={this.props.debateSelectHandler} /> ) }
         </ul>
         <Switch>
