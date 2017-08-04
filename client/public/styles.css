@@ -72,6 +72,12 @@ li.debate-item-style {
 
 .landing {
     text-align: center;
+    background: url('https://image.ibb.co/gJvN7F/bg.jpg');
+    background-size: 100%;
+    background: linear-gradient(
+                     rgba(20,20,20, .5), 
+                     rgba(20,20,20, .5),
+                     url('https://image.ibb.co/gJvN7F/bg.jpg'));
 }
 
 .landing .row {
