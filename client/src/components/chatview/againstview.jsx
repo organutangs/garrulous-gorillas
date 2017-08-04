@@ -58,7 +58,7 @@ export default class Againstview extends React.Component {
                           </li>
                           <li className="login page">
                             <div className="form">
-                              <h3 className="title">What's your nickname?</h3>
+                              <h5 className="title">What's your nickname?</h5>
                               <input className="usernameInput" ref="username" type="text" maxLength="14" />
                             </div>
                           </li>
