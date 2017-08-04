@@ -26,9 +26,9 @@ class Landing extends React.Component {
       <div className='landing'>
         <div className="container">
           <h1 className="text-center">Moot</h1>
-          <div className='row'>
+          <div className='col-sm-12 row'>
             <div className='col-sm-4'>
-              <h2>Foreign Policy</h2>
+              <h1>Foreign Policy</h1>
             </div>
             <div className='col-sm-4'>
               <h1>Law</h1>
@@ -37,7 +37,7 @@ class Landing extends React.Component {
               <h1>Human Rights</h1>
             </div>
           </div>
-          <div className='row'>
+          <div className='col-sm-12 row'>
             <div className='col-sm-4'>
               <h1>Finance</h1>
             </div>
@@ -48,7 +48,7 @@ class Landing extends React.Component {
               <h1>Climate Change</h1>
             </div>
           </div>
-          <div className='row'>
+          <div className='col-sm-12 row'>
             <div className='col-sm-4'>
               <h1>Gun Control</h1>
             </div>
