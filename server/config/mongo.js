@@ -1,4 +1,4 @@
 module.exports = {
-  database: 'mongodb://localhost:27017/debateapp',
+  database: 'mongodb://gorilla:gorilla@ds123752.mlab.com:23752/debateapp',
   secret: 'topsecret'
 };
