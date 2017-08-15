@@ -18,6 +18,17 @@ class Main extends React.Component {
       debates: []
     }
 
+    this.newDebate = (topic) => {
+      axios.post('http://localhost:3000/debates/api/post', {
+        topic: topic,
+        pointsCon: 0,
+        pointsPro: 0,
+        debateArgs: []
+      }).then((response)=>{
+        console.log('create new debate success:' response)
+      })
+    };
+
     this.getAllActive = () => {
 
       axios.get('http://localhost:3000/debates/api/get')
@@ -51,7 +62,14 @@ class Main extends React.Component {
         { this.state.debates.map( (debate, i) => 
           <Route path={`debates/${debate.topic.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '').toLowerCase()}`} component={DebateFloor} key={i} /> ) }
         </Switch>
+          <div className="newTopic">
+            <form>
+              <input type="text" name="topic" />
+              
+            </form>
+          </div>
         </div>
+        
       )
 
     } else {
