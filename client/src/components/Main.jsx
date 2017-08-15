@@ -66,7 +66,7 @@ class Main extends React.Component {
         <div className="newTopic">
             <h5>Create New Topic</h5>
             <form>
-              <input type="text" name="topic" onChange={(e)=>{e.target.value}} />
+              <input type="text" name="topic" onChange={(e)=>{this.handleNewTopic(e.target.value)}} />
               <button onClick={(e)=>{this.newDebate.call(this, this.state.newTopic)}}></button>
             </form>
           </div>
