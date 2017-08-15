@@ -15,18 +15,27 @@ class Main extends React.Component {
     super(props);
 
     this.state = {
-      debates: []
-    }
+      debates: [],
+      newTopic: '',
+    };
+
+    this.handleNewTopic = (topic) => {
+      this.setState({
+        newTopic: topic,
+      });
+    };
 
     this.newDebate = (topic) => {
       axios.post('http://localhost:3000/debates/api/post', {
         topic: topic,
         pointsCon: 0,
         pointsPro: 0,
-        debateArgs: []
+        debateArgs: [],
       }).then((response)=>{
-        console.log('create new debate success:' response)
-      })
+        console.log('create new debate success:', response);
+      }).catch(err=>{
+        console.log('create new debate Error:', err);
+      });
     };
 
     this.getAllActive = () => {
@@ -35,8 +44,8 @@ class Main extends React.Component {
       .then(response => {
         console.log('[Main] Get debates success:', response);
         this.setState({
-          debates: response.data.data
-        })
+          debates: response.data.data,
+        });
       })
       .catch(err => {
         console.log('[Main] Get debates ERROR:', err);
@@ -64,8 +73,8 @@ class Main extends React.Component {
         </Switch>
           <div className="newTopic">
             <form>
-              <input type="text" name="topic" />
-              
+              <input type="text" name="topic" onChange={(e)=>{e.target.value}} />
+              <button onClick={this.newDebate(this.state.newTopic)}></button>
             </form>
           </div>
         </div>
