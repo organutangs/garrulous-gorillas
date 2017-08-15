@@ -9,12 +9,12 @@ class Argument extends React.Component {
     this.state = {
       voted: false,
       status: 'Vote Here',
-      points: 'Loading...'
     }
-
+    console.log(this.props);
     this.handleVote=this.handleVote.bind(this)
   }
 
+  //this is used
   handleVote() {
     if (!this.state.voted) {
     this.setState({
@@ -26,8 +26,14 @@ class Argument extends React.Component {
     axios.put('http://127.0.0.1:3000/debates/api/addVoteToArgument', {
       argument: this.props.argument
     })
-    .then(response)
+    .then((response)=> {
+      this.setState({points: response.data.data.votes});
+    });
     }
+  }
+
+  componentWillMount() {
+
   }
 
   render() {
@@ -40,6 +46,7 @@ class Argument extends React.Component {
     return(
       <div>
         <form>{buttonTemplate}
+          Votes: {this.props.votes}
           {this.props.argument}
         </form>
       </div>
