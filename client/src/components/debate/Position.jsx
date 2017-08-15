@@ -3,10 +3,8 @@ import ReactDOM from 'react-dom';
 import Argument from './Argument.jsx';
 import {Button} from 'react-bootstrap'
 import axios from 'axios';
-import {sortArgsByVote} from '../../utils.js'
-
-
-
+import {sortArgsByVote} from '../../utils.js';
+import AddArgForm from './AddArgForm.jsx';
 
 class Position extends React.Component {
   constructor(props) {
@@ -30,7 +28,7 @@ class Position extends React.Component {
         this.addArguments(data.message.substring(10));
       })
       console.log('#disagree called')
-      }  
+      }
 
       if (data.message.substring(0, 6) === '#agree' && this.props.position==='For') {
         axios.post('http://127.0.0.1:3000/debates/api/postArg', {
@@ -42,7 +40,7 @@ class Position extends React.Component {
           this.addArguments(data.message.substring(7));
           console.log('agree arg posted', response)
         })
-      }  
+      }
     });
 
     this.addArguments = this.addArguments.bind(this);
@@ -126,7 +124,7 @@ class Position extends React.Component {
         })
         console.log('GOT ALL POINTS >>>>>>>', response.data.data)
       })
-      .catch(err=> console.log(err)) 
+      .catch(err=> console.log(err))
     }, 5000);
   }
 
@@ -165,7 +163,8 @@ class Position extends React.Component {
           <h3>{this.props.position}</h3>
           <div><h4>{this.state.points} Points</h4></div>
         {this.props.showJoinButton ? <Button onClick={this.props.setToken} bsStyle="success">Join</Button> : null}
-        
+          <AddArgForm topic={this.props.topic} position={this.props.position} addArguments={this.addArguments}/>
+
         {this.state.arguments.map( (argument, index) => <Argument position= {this.props.position} handleVote={this.handleVote} argument={argument} />)}
       </div>
     )
