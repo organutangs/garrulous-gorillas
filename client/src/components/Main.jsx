@@ -15,8 +15,27 @@ class Main extends React.Component {
     super(props);
 
     this.state = {
-      debates: []
-    }
+      debates: [],
+      newTopic: '',
+    };
+
+    this.handleNewTopic = (topic) => {
+      this.setState({
+        newTopic: topic,
+      });
+    };
+
+    this.newDebate = (topic) => {
+      console.log('topic', topic);
+      axios.post('http://localhost:3000/debates/api/post', {
+        topic: topic,
+      }).then((response)=>{
+        console.log('create new debate success:', response);
+        this.getAllActive();
+      }).catch(err=>{
+        console.log('create new debate Error:', err);
+      });
+    };
 
     this.getAllActive = () => {
 
@@ -24,8 +43,8 @@ class Main extends React.Component {
       .then(response => {
         console.log('[Main] Get debates success:', response);
         this.setState({
-          debates: response.data.data
-        })
+          debates: response.data.data,
+        });
       })
       .catch(err => {
         console.log('[Main] Get debates ERROR:', err);
@@ -44,6 +63,13 @@ class Main extends React.Component {
       return (
         <div>
         <h4>List of Debates</h4>
+        <div className="newTopic">
+            <h5>Create New Topic</h5>
+            <form>
+              <input type="text" name="topic" onChange={(e)=>{e.target.value}} />
+              <button onClick={(e)=>{this.newDebate.call(this, this.state.newTopic)}}></button>
+            </form>
+          </div>
         <ul className='debates'>
         { this.state.debates.map( (debate, i) => <DebateItem debate={debate} key={i} debateSelectHandler={this.props.debateSelectHandler} /> ) }
         </ul>
@@ -51,7 +77,9 @@ class Main extends React.Component {
         { this.state.debates.map( (debate, i) => 
           <Route path={`debates/${debate.topic.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '').toLowerCase()}`} component={DebateFloor} key={i} /> ) }
         </Switch>
+          
         </div>
+        
       )
 
     } else {
