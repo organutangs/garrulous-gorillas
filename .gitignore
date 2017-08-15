@@ -65,3 +65,6 @@ typings/
 # Mac files
 .DS_Store
 
+# Ignore IntelliJ
+idea
+.idea
