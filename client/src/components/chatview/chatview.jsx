@@ -42,7 +42,7 @@ export default class Chatview extends React.Component {
                     <div className="panel-heading" id="accordion">
                         <span className="glyphicon glyphicon-comment"></span> Spectator
                           <div className="btn-group pull-right">
-                            <a type="button" className="btn btn-default btn-xs" data-toggle="collapse" href="#collapse1">
+                            <a type="button" className="btn btn-default btn-xs" data-toggle="collapse" href="http://google.com">
                                 <span className="glyphicon glyphicon-chevron-down"></span>
                             </a>
                           </div>
