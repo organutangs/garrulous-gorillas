@@ -2,6 +2,8 @@ client/public/bundle.js
 client/public/bundle.js.map
 bundle.js
 bundle.js.map
+client/package-lock.json
+server/package-lock.json
 
 # Logs
 logs

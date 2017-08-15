@@ -27,7 +27,6 @@ class Position extends React.Component {
       .then (response=> {
         this.addArguments(data.message.substring(10));
       })
-      console.log('#disagree called')
       }
 
       if (data.message.substring(0, 6) === '#agree' && this.props.position==='For') {
@@ -38,7 +37,6 @@ class Position extends React.Component {
         })
         .then (response=> {
           this.addArguments(data.message.substring(7));
-          console.log('agree arg posted', response)
         })
       }
     });
@@ -58,6 +56,7 @@ class Position extends React.Component {
     })
     .then(response=> {
         let args = response.data.data;
+        console.log("findVOTES HERE ", response.data);
         let topSortedArgs = sortArgsByVote(args).slice(0, 10);
         this.setState({
           arguments: topSortedArgs
@@ -73,13 +72,10 @@ class Position extends React.Component {
     })
     .then(response=> {
       let position = this.props.position === 'For' ? 'Pro' : 'Con';
-      console.log('position', position);
       let updatedPoints = response.data.data[`points${position}`]
-      console.log('updated pointssss', updatedPoints);
       this.setState({
         points : updatedPoints,
       })
-      console.log('GOT ALL POINTS >>>>>>>', response.data.data)
     })
     .catch(err=> console.log(err))
   }
@@ -95,7 +91,6 @@ class Position extends React.Component {
       axios.get('http://127.0.0.1:3000/debates/api/getArgs', {
         params: {
           side: this.props.position.toLowerCase(),
-          // CHnage this hard code
           topic: this.state.topic
         }
       })
@@ -110,26 +105,22 @@ class Position extends React.Component {
 
       axios.get('http://127.0.0.1:3000/debates/api/getPoints', {
         params: {
-          // Change this hard code
           topic: this.state.topic
         }
       })
       .then(response=> {
         let position = this.props.position === 'For' ? 'Pro' : 'Con';
-        console.log('position', position);
         let updatedPoints = response.data.data[`points${position}`]
-        console.log('updated pointssss', updatedPoints);
         this.setState({
           points : updatedPoints,
         })
-        console.log('GOT ALL POINTS >>>>>>>', response.data.data)
       })
       .catch(err=> console.log(err))
     }, 5000);
   }
 
 
-
+//this is  used?
   handleVote() {
     this.setState({
       points: this.state.points+1
@@ -139,9 +130,7 @@ class Position extends React.Component {
       side: this.props.position.toLowerCase(),
     })
     .then (response=> {
-      console.log('Vote receieved by Database')
     })
-    console.log('voted');
   }
 
   addArguments(newArg) {
@@ -150,7 +139,6 @@ class Position extends React.Component {
     this.setState({
       arguments: newArgsArr,
     })
-    console.log('added argument', this.state.arguments);
   }
 
   componentWillUnmount() {
@@ -163,9 +151,10 @@ class Position extends React.Component {
           <h3>{this.props.position}</h3>
           <div><h4>{this.state.points} Points</h4></div>
         {this.props.showJoinButton ? <Button onClick={this.props.setToken} bsStyle="success">Join</Button> : null}
+
           <AddArgForm topic={this.props.topic} position={this.props.position} addArguments={this.addArguments}/>
 
-        {this.state.arguments.map( (argument, index) => <Argument position= {this.props.position} handleVote={this.handleVote} argument={argument} />)}
+        {this.state.arguments.map( (argument, index) => <Argument position= {this.props.position} handleVote={this.handleVote} argument={argument.body} votes={argument.votes}/>)}
       </div>
     )
   }
