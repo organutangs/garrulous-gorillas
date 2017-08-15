@@ -9,10 +9,11 @@ class Argument extends React.Component {
     this.state = {
       voted: false,
       status: 'Vote Here',
+      points: 'Loading...'
     }
 
     this.handleVote=this.handleVote.bind(this)
-  }  
+  }
 
   handleVote() {
     if (!this.state.voted) {
