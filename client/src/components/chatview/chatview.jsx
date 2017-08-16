@@ -8,7 +8,21 @@ export default class Chatview extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      chat: {}
+      chat: {},
+      displayCustom: {display: 'block'},
+    }
+
+    this.toggleDisplay = ()=>{
+      console.log('display state', this.state.displayCustom.display);
+      if( this.state.displayCustom.display==='none'){
+        this.setState({
+          displayCustom: {display: 'block'}
+          });
+      } else {
+          this.setState({
+            displayCustom: {display: 'none'}
+          });
+      }
     }
 
     this.handleSubmit = (event) => {
@@ -34,49 +48,49 @@ export default class Chatview extends React.Component {
   }
 
  render() {
-  return (
-      <div className="container">
+    return (
+      <div className="container col-md-12 col-md-offset-3">
         <div className="row">
-            <div className="col-md-5">
-                <div className="panel panel-primary">
-                    <div className="panel-heading" id="accordion">
-                        <span className="glyphicon glyphicon-comment"></span> Spectator
-                          <div className="btn-group pull-right">
-                            <a type="button" className="btn btn-default btn-xs" data-toggle="collapse" href="#collapse1">
-                                <span className="glyphicon glyphicon-chevron-down"></span>
-                            </a>
-                          </div>
-                    </div>
-                    <div className="panel-collapse collapse in" id="collapse1">
-                      <div className="panel-body">
-                        <div id="chat-window-output" ref="outputSpectator"></div>
-                      </div>
-                      <ul className="pages">
-                        <li className="chat page">
-                          <div className="chatArea">
-                            <ul className="messages"></ul>
-                          </div>
-                        </li>
-                        <li className="login page">
-                          <div className="form">
-                            <h5 className="title">What's your nickname?</h5>
-                            <input className="usernameInput" ref="username" type="text" maxLength="14" />
-                          </div>
-                        </li>
-                      </ul>
-                      <div className="panel-footer">
-                        <div className="input-group">
-                            <input id="btn-input" type="text" className="inputMessage form-control input-sm" ref="message" placeholder="Type your message here..." />
-                            <span className="input-group-btn">
-                                <button className="btn btn-warning btn-sm" id="btn-chat" onClick={(event) => this.handleSubmit(event)}>Send</button>
-                            </span>
-                        </div>
-                      </div> 
-                    </div> 
+          <div className="col-md-5">
+            <div className="panel panel-primary">
+              <div className="panel-heading" id="accordion">
+                <span className="glyphicon glyphicon-comment"></span> Spectator
+                <div className="btn-group pull-right">
+                  <a type="button" className="btn btn-default btn-xs" onClick={this.toggleDisplay.bind(this)}>
+                    <span className="glyphicon glyphicon-chevron-down"></span>
+                  </a>
                 </div>
-            </div>      
+              </div>
+              <div className="panel-collapse collapse in" id="collapse1" style={this.state.displayCustom}>
+                <div className="panel-body">
+                  <div id="chat-window-output" ref="outputSpectator"></div>
+                </div>
+                <ul className="pages">
+                  <li className="chat page">
+                    <div className="chatArea">
+                      <ul className="messages"></ul>
+                    </div>
+                  </li>
+                  <li className="login page">
+                    <div className="form">
+                      <h5 className="title">What's your nickname?</h5>
+                      <input className="usernameInput" ref="username" type="text" maxLength="14" />
+                    </div>
+                  </li>
+                </ul>
+                <div className="panel-footer">
+                  <div className="input-group">
+                    <input id="btn-input" type="text" className="inputMessage form-control input-sm" ref="message" placeholder="Type your message here..." />
+                    <span className="input-group-btn">
+                      <button className="btn btn-warning btn-sm" id="btn-chat" onClick={(event) => this.handleSubmit(event)}>Send</button>
+                    </span>
+                  </div>
+                </div> 
+              </div> 
+            </div>
+          </div>      
         </div>
-      </div>     
-      )
-   }
+      </div>   
+    )
+ }
 }
