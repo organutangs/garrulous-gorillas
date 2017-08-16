@@ -35,7 +35,6 @@ router.get('/api/get', (req, res) => {
         msg: `Failed to get all debates`
       });
     } else if (data) {
-      console.log('DEBATES / GET success! data:', data);
       res.json({
         success: true,
         msg: `Got all debates success!`,
@@ -46,8 +45,6 @@ router.get('/api/get', (req, res) => {
 });
 
 router.post('/api/postArg', (req, res) => {
-
-  console.log('new arg posted', req.body)
 
   const newArgument = new DebateArg({
     body: req.body.argumentBody,
@@ -62,7 +59,6 @@ router.post('/api/postArg', (req, res) => {
         success: false,
       });
     } else if (data) {
-      console.log('POST arguments success!', data);
       res.json({
         success: true,
         data: data
@@ -77,7 +73,6 @@ router.post('/api/postArg', (req, res) => {
 });
 
 router.get('/api/getArgs', (req, res) => {
-  console.log('ATTEMPT get args', req.query);
 
   const topic = req.query.topic;
   const side = req.query.side;
@@ -88,7 +83,6 @@ router.get('/api/getArgs', (req, res) => {
         success: false
       });
     } else if (data) {
-      console.log('GET arguments success!', data);
       res.json({
         success: true,
         data: data
@@ -98,7 +92,6 @@ router.get('/api/getArgs', (req, res) => {
 });
 
 router.put('/api/addPtToDebateSide', (req, res) => {
-  console.log('[addPtToDebateSide]');
 
   let topic = req.body.topic;
   let side = req.body.side;
@@ -111,7 +104,6 @@ router.put('/api/addPtToDebateSide', (req, res) => {
         success: false
       });
     } else if (data) {
-      console.log('PUT +1 votes. success!', data);
       res.json({
         success: true,
         data: data
@@ -123,7 +115,6 @@ router.put('/api/addPtToDebateSide', (req, res) => {
 
 // Get all points for a topic
 router.get('/api/getPoints', (req, res) => {
-  console.log('[getPoints]');
   let topic = req.query.topic;
 
   ActiveDebate.getPointsByTopic(topic, (err, data) => {
@@ -132,7 +123,6 @@ router.get('/api/getPoints', (req, res) => {
         success: false
       });
     } else if (data) {
-      console.log('GOT ALL THE POINTS', data);
       res.json({
         success: true,
         data: data
@@ -154,7 +144,6 @@ router.put('/api/addVoteToArgument', (req, res) => {
         success: false
       });
     } else if (data) {
-      console.log('PUT +1 pts. success!', data);
       res.json({
         success: true,
         data: data
@@ -171,7 +160,6 @@ router.get('/api/getVotes', (req, res) => {
         success: false
       });
     } else if (data) {
-      console.log('GET Argument data. success!', data);
       res.json({
         success: true,
         // Data returned is the number of votes

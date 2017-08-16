@@ -56,7 +56,6 @@ class Position extends React.Component {
     })
     .then(response=> {
         let args = response.data.data;
-        console.log("findVOTES HERE ", response.data);
         let topSortedArgs = sortArgsByVote(args).slice(0, 10);
         this.setState({
           arguments: topSortedArgs

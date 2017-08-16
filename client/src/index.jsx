@@ -25,8 +25,6 @@ class App extends React.Component {
 
     this.debateSelectHandler = (debateSelected) => {
       // When a debate is clicked, App will be notified and get the current debate data
-      console.log('[App] debateSelectHandler fired -->', debateSelected);
-
       // Save in state
       this.setState({currentDebateSelected: debateSelected});
       this.setState({debateIsSelected: true});

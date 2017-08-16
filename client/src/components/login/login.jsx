@@ -21,8 +21,6 @@ class Login extends React.Component {
       const password = ReactDOM.findDOMNode(this.refs.password).value.trim();
       const creds = { username: username, password: password };
 
-      console.log('LOG IN with creds', creds);
-
       axios.post('http://localhost:3000/users/login', creds)
       .then(response => {
         console.log('[Login] Success Response:', response);
