@@ -4,6 +4,7 @@ bundle.js
 bundle.js.map
 client/package-lock.json
 server/package-lock.json
+mongo.js
 
 # Logs
 logs
