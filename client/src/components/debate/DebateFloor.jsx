@@ -29,14 +29,26 @@ class DebateFloor extends React.Component {
   }
 
   setToken(position) {
-    if (position==='for') {
-      localStorage.setItem('position', 'for')
-    }  else {
-      localStorage.setItem('position', 'against')
-    }
-    this.setState({
+    if (position ==='for') {
+      localStorage.setItem('position', 'for');
+      this.setState({
       showJoinButton: false,
     })
+    }  
+    else if (position === 'against') {
+      localStorage.setItem('position', 'against');
+      this.setState({
+        showJoinButton: false,
+      })
+    } else {
+      localStorage.setItem('position', 'spectator');
+      this.setState({
+      showJoinButton: true,
+    })
+    }
+    
+    console.log(position)
+    console.log('token set');
     this.forceUpdate();
   }
 
@@ -72,9 +84,9 @@ class DebateFloor extends React.Component {
                       topic={this.state.topic} />
           </div>
           <div className='row' >
-            { localStorage.position === 'for' ? <ForView /> : null}
-            { localStorage.position === 'against' ? <AgainstView /> : null}
-            { localStorage.position ? null : <ChatView />}
+            { localStorage.position === 'for' ? <ForView setToken={this.setToken.bind(this, 'spectator')}/> : null}
+            { localStorage.position === 'against' ? <AgainstView setToken={this.setToken.bind(this, 'spectator')}/> : null}
+            { localStorage.position === 'spectator' ? <ChatView /> : null}
           </div>
         </div>
       )
