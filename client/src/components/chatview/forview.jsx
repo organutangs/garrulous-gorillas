@@ -10,20 +10,20 @@ export default class Forview extends React.Component {
     super(props);
     this.state = { 
       chat: {},
-      open: 0,
-      displayCustom: {display: 'table'},
+      displayCustom: {display: 'block'},
     }
+
     this.toggleDisplay = ()=>{
       console.log('display state', this.state.displayCustom.display);
       if( this.state.displayCustom.display==='none'){
-      this.setState({
-        displayCustom: {display: 'table'}
-        });
-    } else {
         this.setState({
-          displayCustom: {display: 'none'}
-        });
-    }
+          displayCustom: {display: 'block'}
+          });
+      } else {
+          this.setState({
+            displayCustom: {display: 'none'}
+          });
+      }
     }
 
 
@@ -65,7 +65,7 @@ export default class Forview extends React.Component {
                             </a>
                           </div>
                     </div>
-                    <Collapse in={this.state.open} >
+                    <Collapse>
                       <div className="panel-collapse collapse in" id="collapse1" style={this.state.displayCustom}>
                         <div className="panel-body">
                           <div id="chat-window-output" ref="outputFor"></div>
