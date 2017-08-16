@@ -21,7 +21,6 @@ class SignUp extends React.Component {
       const password = ReactDOM.findDOMNode(this.refs.password).value.trim();
       const creds = { username: username, password: password };
       //this.props.onLoginClick(creds)
-      console.log('SIGN UP with creds', creds);
 
       axios.post('http://localhost:3000/users/register', creds)
       .then(response => {

@@ -10,7 +10,6 @@ class Argument extends React.Component {
       voted: false,
       status: 'Vote Here',
     }
-    console.log(this.props);
     this.handleVote=this.handleVote.bind(this)
   }
 

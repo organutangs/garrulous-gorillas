@@ -7,7 +7,6 @@ exports.sortArgsByNew = function(data) {
   var sorted = data.sort((a,b)=>{
     return b-a;
   }).map((obj)=> {obj.body});
-  console.log('sort by new', sorted);
   return sorted;
 }
 
@@ -19,7 +18,6 @@ exports.sortArgsByVote = function(data) {
   var sorted = data.sort((a, b)=> {
     return b.votes - a.votes;
   });
-  console.log('sorted args', sorted);
   return  sorted;
 };
 

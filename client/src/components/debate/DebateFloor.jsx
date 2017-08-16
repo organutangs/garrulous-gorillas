@@ -37,8 +37,6 @@ class DebateFloor extends React.Component {
     this.setState({
       showJoinButton: false,
     })
-    console.log(position)
-    console.log('token set');
     this.forceUpdate();
   }
 

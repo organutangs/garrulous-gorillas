@@ -26,11 +26,9 @@ class Main extends React.Component {
     };
 
     this.newDebate = (topic) => {
-      console.log('topic', topic);
       axios.post('http://localhost:3000/debates/api/post', {
         topic: topic,
       }).then((response)=>{
-        console.log('create new debate success:', response);
         this.getAllActive();
       }).catch(err=>{
         console.log('create new debate Error:', err);
@@ -41,7 +39,6 @@ class Main extends React.Component {
 
       axios.get('http://localhost:3000/debates/api/get')
       .then(response => {
-        console.log('[Main] Get debates success:', response);
         this.setState({
           debates: response.data.data,
         });

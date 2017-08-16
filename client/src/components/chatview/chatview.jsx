@@ -13,7 +13,6 @@ export default class Chatview extends React.Component {
     }
 
     this.toggleDisplay = ()=>{
-      console.log('display state', this.state.displayCustom.display);
       if( this.state.displayCustom.display==='none'){
         this.setState({
           displayCustom: {display: 'block'}
@@ -41,7 +40,6 @@ export default class Chatview extends React.Component {
     // Listen for chats
     socket.on('chat', (data) => {
       const output = ReactDOM.findDOMNode(this.refs.outputSpectator);
-      console.log(output);
       output.innerHTML += `<p><strong>${data.username}:</strong>${data.message}</p>`;
       output.lastChild.scrollIntoView();
     });

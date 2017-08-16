@@ -13,7 +13,6 @@ export default class Againstview extends React.Component {
     }
 
     this.toggleDisplay = ()=>{
-      console.log('display state', this.state.displayCustom.display);
       if( this.state.displayCustom.display==='none'){
         this.setState({
           displayCustom: {display: 'block'}
