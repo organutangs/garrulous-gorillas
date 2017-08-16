@@ -52,7 +52,14 @@ export default class Forview extends React.Component {
 
   return (
       <div className="container col-md-12">
-        <h3>Side: For</h3>
+        <div className="row">
+          <div className="col-md-4" >
+            <h3 style={{margin: 0}}>Side: For</h3>
+          </div>
+          <div className="col-md-1">
+            <Button onClick={this.props.setToken} bsStyle="success">Leave</Button>
+          </div>
+        </div>
         <div className="row">
             <div className="col-md-5">
                 <div className="panel panel-primary">
