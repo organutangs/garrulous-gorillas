@@ -73,13 +73,10 @@ class Position extends React.Component {
     })
     .then(response=> {
       let position = this.props.position === 'For' ? 'Pro' : 'Con';
-      console.log('position', position);
       let updatedPoints = response.data.data[`points${position}`]
-      console.log('updated pointssss', updatedPoints);
       this.setState({
         points : updatedPoints,
       })
-      console.log('GOT ALL POINTS >>>>>>>', response.data.data)
     })
     .catch(err=> console.log(err))
   }
@@ -116,13 +113,10 @@ class Position extends React.Component {
       })
       .then(response=> {
         let position = this.props.position === 'For' ? 'Pro' : 'Con';
-        console.log('position', position);
         let updatedPoints = response.data.data[`points${position}`]
-        console.log('updated pointssss', updatedPoints);
         this.setState({
           points : updatedPoints,
         })
-        console.log('GOT ALL POINTS >>>>>>>', response.data.data)
       })
       .catch(err=> console.log(err))
     }, 5000);
