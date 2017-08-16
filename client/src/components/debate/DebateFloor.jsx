@@ -35,7 +35,7 @@ class DebateFloor extends React.Component {
       localStorage.setItem('position', 'against')
     }
     this.setState({
-      showJoinButton: false,
+      showJoinButton: !this.state.showJoinButton,
     })
     console.log(position)
     console.log('token set');
@@ -74,8 +74,8 @@ class DebateFloor extends React.Component {
                       topic={this.state.topic} />
           </div>
           <div className='row' >
-            { localStorage.position === 'for' ? <ForView /> : null}
-            { localStorage.position === 'against' ? <AgainstView /> : null}
+            { localStorage.position === 'for' ? <ForView setToken={this.setToken.bind(this, null)}/> : null}
+            { localStorage.position === 'against' ? <AgainstView setToken={this.setToken.bind(this, null)}/> : null}
             { localStorage.position ? null : <ChatView />}
           </div>
         </div>

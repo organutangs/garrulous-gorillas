@@ -58,7 +58,7 @@ export default class Forview extends React.Component {
             <h3 style={{margin: 0}}>Side: For</h3>
           </div>
           <div className="col-md-1">
-            <Button bsStyle="success">Leave</Button>
+            <Button onClick={this.props.setToken} bsStyle="success">Leave</Button>
           </div>
         </div>
         <div className="row">
