@@ -13,7 +13,7 @@ class Argument extends React.Component {
     this.handleVote=this.handleVote.bind(this)
   }
 
-  //this is used
+  //this increases the arguments votes
   handleVote() {
     if (!this.state.voted) {
     this.setState({

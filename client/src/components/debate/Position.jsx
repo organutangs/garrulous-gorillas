@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import Argument from './Argument.jsx';
 import {Button} from 'react-bootstrap'
 import axios from 'axios';
-import {sortArgsByVote} from '../../utils.js';
+import {sortArgsByVote, sortArgsByNew, sortArgsByHot} from '../../utils.js';
 import AddArgForm from './AddArgForm.jsx';
+import FilterArgs from './FilterArgs.jsx';
 
 class Position extends React.Component {
   constructor(props) {
@@ -13,6 +14,10 @@ class Position extends React.Component {
       arguments: [],
       points: 'Loading...',
       topic: this.props.topic,
+      topVoted:[],
+      topNew:[],
+      topHot:[]
+
     }
 
     const socket = require('socket.io-client')(`http://localhost:3000/${this.props.position.toLowerCase()}`)
@@ -43,6 +48,7 @@ class Position extends React.Component {
 
     this.addArguments = this.addArguments.bind(this);
     this.handleVote = this.handleVote.bind(this);
+    this.setArguments = this.setArguments.bind(this);
   }
 
   componentWillMount() {
@@ -57,8 +63,13 @@ class Position extends React.Component {
     .then(response=> {
         let args = response.data.data;
         let topSortedArgs = sortArgsByVote(args).slice(0, 10);
+        let topSortedNew = sortArgsByNew(args).slice(0, 10);
+        let topSortedHot= sortArgsByHot(args).slice(0, 10);
         this.setState({
-          arguments: topSortedArgs
+          arguments: topSortedArgs,
+          topHot: topSortedHot,
+          topNew: topSortedNew,
+          topVoted: topSortedArgs
         })
       }
     )
@@ -95,7 +106,9 @@ class Position extends React.Component {
       })
       .then(response=> {
           let args = response.data.data;
+          //args = body, votes, updated, id, debateSide, debateTopic
           let topSortedArgs = sortArgsByVote(args).slice(0, 10);
+          //
           this.setState({
             arguments: topSortedArgs
           })
@@ -119,7 +132,7 @@ class Position extends React.Component {
   }
 
 
-//this is  used?
+//this increases the total points (votes)
   handleVote() {
     this.setState({
       points: this.state.points+1
@@ -140,6 +153,12 @@ class Position extends React.Component {
     })
   }
 
+  //pass this function into FilterArgs
+  //sortArg is an array of arguments sorted by New or Hot or Top
+  setArguments(sortArg) {
+    this.setState({arguments: sortArg});
+  }
+
   componentWillUnmount() {
     clearInterval(this.intervalId);
   }
@@ -152,6 +171,8 @@ class Position extends React.Component {
         {this.props.showJoinButton ? <Button onClick={this.props.setToken} bsStyle="success">Join</Button> : null}
 
           <AddArgForm topic={this.props.topic} position={this.props.position} addArguments={this.addArguments}/>
+
+          <FilterArgs new={this.state.topNew} hot={this.state.topHot} top={this.state.topVoted} setArguments={this.setArguments}/>
 
         {this.state.arguments.map( (argument, index) => <Argument position= {this.props.position} handleVote={this.handleVote} argument={argument.body} votes={argument.votes}/>)}
       </div>
