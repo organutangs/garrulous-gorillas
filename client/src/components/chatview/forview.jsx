@@ -52,7 +52,7 @@ export default class Forview extends React.Component {
   
 
   return (
-      <div className="container for">
+      <div className="container col-md-12">
         <h3>Side: For</h3>
         <div className="row">
             <div className="col-md-5">

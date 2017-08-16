@@ -49,7 +49,7 @@ export default class Chatview extends React.Component {
 
  render() {
     return (
-      <div className="container spectator">
+      <div className="container col-md-12 col-md-offset-3">
         <div className="row">
           <div className="col-md-5">
             <div className="panel panel-primary">
