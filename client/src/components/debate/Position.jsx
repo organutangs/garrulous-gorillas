@@ -149,7 +149,7 @@ class Position extends React.Component {
       <div className='col-sm-6'>
           <h3>{this.props.position}</h3>
           <div><h4>{this.state.points} Points</h4></div>
-        {this.props.showJoinButton ? <Button onClick={this.props.setToken} bsStyle="success">Join</Button> : null}
+        {this.props.showJoinButton ? <Button onClick={this.props.setToken} bsStyle="success" className="drift wiggle">Join</Button> : null}
 
           <AddArgForm topic={this.props.topic} position={this.props.position} addArguments={this.addArguments}/>
 
