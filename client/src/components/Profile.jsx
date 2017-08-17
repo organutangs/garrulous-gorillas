@@ -108,20 +108,33 @@ class Profile extends React.Component {
           <h1 className="title">Profile</h1>
           <h3 className="caption"> Who are you? </h3>
           <div className="row" id="userInfo">
+<<<<<<< HEAD
             <UserInfo
               user={this.state.user}
               debates={this.state.debates}
               args={this.state.args}
             />
+=======
+            <div>My Info</div>
+            <UserInfo/>
+>>>>>>> fleshing out profile page and components
           </div>
           <div className="row" id="Activity">
             <div className="col-md-6" id="userDebates">
               What are you debating?
+<<<<<<< HEAD
               <UserDebates debates={this.state.debates} />
+=======
+              <UserDebates/>
+>>>>>>> fleshing out profile page and components
             </div>
             <div className="col-md-6" id="userArguments">
               What are your arguments?
+<<<<<<< HEAD
               <UserArgs args={this.state.args} />
+=======
+              <UserArgs/>
+>>>>>>> fleshing out profile page and components
               <div>Arg1</div>
             </div>
           </div>
