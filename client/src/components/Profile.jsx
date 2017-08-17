@@ -35,14 +35,16 @@ class Profile extends React.Component {
           <h3 className="caption"> Who are you? </h3>
           <div className="row" id="userInfo">
             <div>My Info</div>
+            <UserInfo/>
           </div>
           <div className="row" id ="Activity">
             <div className="col-md-6" id ="userDebates">
               What are you debating?
-              <div>Debate1</div>
+              <UserDebates/>
             </div>
             <div className="col-md-6" id ="userArguments">
               What are your arguments?
+              <UserArgs/>
               <div>Arg1</div>
             </div>
           </div>
