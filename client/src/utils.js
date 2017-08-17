@@ -21,10 +21,6 @@ exports.sortArgsByVote = function(data) {
   var sorted = data.sort((a, b)=> {
     return b.votes - a.votes;
   });
-<<<<<<< HEAD
-=======
-  //console.log('sorted args', sorted);
->>>>>>> filter bar completely working, fixed bugs with set interval and filter bar, fixed bug with individual votes created by filter bar, need to fix sort by date util
   return  sorted;
 };
 
