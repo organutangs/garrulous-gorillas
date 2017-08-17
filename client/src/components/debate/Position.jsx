@@ -16,7 +16,8 @@ class Position extends React.Component {
       topic: this.props.topic,
       topVoted:[],
       topNew:[],
-      topHot:[]
+      topHot:[],
+      currentFilter:'Top Voted'
 
     }
 
@@ -49,8 +50,10 @@ class Position extends React.Component {
     this.addArguments = this.addArguments.bind(this);
     this.handleVote = this.handleVote.bind(this);
     this.setArguments = this.setArguments.bind(this);
+    this.setCurrentFilter = this.setCurrentFilter.bind(this);
   }
 
+  //before component loads, query for data
   componentWillMount() {
 
     axios.get('http://127.0.0.1:3000/debates/api/getArgs', {
@@ -62,15 +65,20 @@ class Position extends React.Component {
     })
     .then(response=> {
         let args = response.data.data;
+<<<<<<< HEAD
+=======
+        //console.log("findVOTES HERE ", response.data);
+>>>>>>> filter bar completely working, fixed bugs with set interval and filter bar, fixed bug with individual votes created by filter bar, need to fix sort by date util
         let topSortedArgs = sortArgsByVote(args).slice(0, 10);
         let topSortedNew = sortArgsByNew(args).slice(0, 10);
         let topSortedHot= sortArgsByHot(args).slice(0, 10);
-        console.log("mostvotes ", topSortedArgs,"Hot ",topSortedHot,"New ",topSortedNew);
+        //console.log("mostvotes ", topSortedArgs,"Hot ",topSortedHot,"New ",topSortedNew);
         this.setState({
           arguments: topSortedArgs,
           topHot: topSortedHot,
           topNew: topSortedNew,
-          topVoted: topSortedArgs
+          topVoted: topSortedArgs,
+          currentFilter: topSortedArgs
         })
       }
     )
@@ -111,11 +119,21 @@ class Position extends React.Component {
           let topSortedArgs = sortArgsByVote(args).slice(0, 10);
           let topSortedNew = sortArgsByNew(args).slice(0, 10);
           let topSortedHot= sortArgsByHot(args).slice(0, 10);
+
+          let currentList;
+          if (this.state.currentFilter === "Top Voted") {
+            currentList = topSortedArgs;
+          } else if (this.state.currentFilter === "Hot") {
+            currentList = topSortedHot;
+          } else {
+            currentList = topSortedNew;
+          }
           //
           this.setState({
             topHot: topSortedHot,
             topNew: topSortedNew,
-            topVoted: topSortedArgs
+            topVoted: topSortedArgs,
+            arguments: currentList
           })
         }
       )
@@ -134,7 +152,7 @@ class Position extends React.Component {
       })
       .catch(err=> console.log(err))
 
-    }, 10000);
+    }, 5000);
   }
 
 
@@ -162,9 +180,12 @@ class Position extends React.Component {
   //pass this function into FilterArgs
   //sortArg is an array of arguments sorted by New or Hot or Top
   setArguments(sortArg) {
-    console.log('***this is sort arg***', sortArg);
-
+    //console.log('***this is sort arg***', sortArg);
     this.setState({arguments: sortArg});
+  }
+
+  setCurrentFilter(input) {
+    this.setState({currentFilter: input});
   }
 
   componentWillUnmount() {
@@ -180,7 +201,7 @@ class Position extends React.Component {
 
           <AddArgForm topic={this.props.topic} position={this.props.position} addArguments={this.addArguments}/>
 
-          <FilterArgs new={this.state.topNew} hot={this.state.topHot} top={this.state.topVoted} setArguments={this.setArguments}/>
+          <FilterArgs new={this.state.topNew} hot={this.state.topHot} top={this.state.topVoted} setArguments={this.setArguments} setFilter={this.setCurrentFilter}/>
 
           {this.state.arguments.map( (argument, index) => <Argument position= {this.props.position} handleVote={this.handleVote} argument={argument.body} votes={argument.votes}/>)
         }

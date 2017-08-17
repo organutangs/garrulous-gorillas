@@ -4,34 +4,32 @@ import ReactDOM from 'react-dom';
 class FilterArgs extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: []};
+    this.state = {value: "select an arguments filter"};
 
     this.handleChange = this.handleChange.bind(this);
-    //this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    console.log("top PROP HELP** ", this.props.top);
-    console.log("NEW PROP HELP** ", this.props.new);
-    console.log("HOT PROP HELP** ", this.props.hot);
-    console.log("this is EVENT*** ", event.target.value);
     this.setState({value: event.target.value});
-    this.props.setArguments(JSON.parse(event.target.value));
+    this.props.setFilter(event.target.value);
+
+    if (event.target.value === "Top Voted") {
+      this.props.setArguments(this.props.top);
+    } else if (event.target.value === "Hot") {
+      this.props.setArguments(this.props.hot);
+    } else {
+      this.props.setArguments(this.props.new);
+    }
 
   }
 
-  // handleSubmit(event) {
-  //   event.preventDefault;
-  //   console.log(event);
-  //   this.props.setArguments(this.state.value);
-  // }
   render() {
     return (
         <div>
           <select value={this.state.value} onChange={this.handleChange}>
-            <option value={JSON.stringify(this.props.top)}>Top Voted</option>
-            <option value={JSON.stringify(this.props.hot)}> Hot </option>
-            <option value={JSON.stringify(this.props.new)}> New </option>
+            <option value="Top Voted" list="1">Top Voted</option>
+            <option value="Hot" list="2"> Hot </option>
+            <option value="New" list="3"> New </option>
           </select>
         </div>
 
