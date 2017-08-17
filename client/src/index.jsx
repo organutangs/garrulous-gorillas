@@ -46,8 +46,8 @@ class App extends React.Component {
         <Nav />
 
         <Switch>
-          <Route exact path="/" component={Landing}/>
-          <Route exact path="/debates" component={ () => <Main debateSelectHandler={this.debateSelectHandler} debateIsSelected={this.debateIsSelected} currentDebate={this.state.currentDebate}/> }/>
+          {/*<Route exact path="/" component={Landing}/>*/}
+          <Route exact path="/" component={ () => <Main debateSelectHandler={this.debateSelectHandler} debateIsSelected={this.debateIsSelected} currentDebate={this.state.currentDebate}/> }/>
           <Route exact path="/login" component={Login}/>
           <Route exact path="/signup" component={SignUp}/>
           <Route path="/debates" component= { ()=> <DebateFloor currentDebateSelected={this.state.currentDebateSelected} debateIsSelected={this.state.debateIsSelected}/> } />

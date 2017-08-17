@@ -16,15 +16,15 @@ app.use(bodyParser.urlencoded({extended: false}));
 //   res.send('TEST!');
 // });
 
-app.get('/', function(req, res) {
-  res.sendFile('index.html', { root: __dirname + '/public'});
-  // res.send('You shouldn\'t be here...');
-});
-
-app.get('*', function(req, res) {
-  res.redirect('/');
-  // res.send('You shouldn\'t be here...');
-});
+// app.get('/', function(req, res) {
+//   res.sendFile('index.html', { root: __dirname + '/public'});
+//   // res.send('You shouldn\'t be here...');
+// });
+//
+// app.get('*', function(req, res) {
+//   res.redirect('/');
+//   // res.send('You shouldn\'t be here...');
+// });
 
 //test work for sockets
 app.get('/chatview', function(req, res) {
