@@ -1,7 +1,10 @@
-exports.sortArgsByHot = function(data) {
-//console.log("sortbyHOT returns data ", data);
-return data;
+//everytime a vote is triggered add username to vote
+//add timeStamp to vote
+//if already voted, dont let them vote from the already made boolean
+//
 
+exports.sortArgsByHot = function(data) {
+return data;
 }
 
 exports.sortArgsByNew = function(data) {

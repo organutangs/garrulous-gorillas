@@ -15,6 +15,9 @@ class AddArgForm extends React.Component {
     this.setState({value: event.target.value});
   }
 
+//add user
+//everytime a vote is triggered add username to vote (already made)
+//if already voted, dont let them vote from the already made boolean
   handleSubmit(event) {
     event.preventDefault();
     axios.post('http://127.0.0.1:3000/debates/api/postArg', {

@@ -16,7 +16,6 @@ class Argument extends React.Component {
 
   //this increases the arguments votes
   handleVote() {
-    console.log("argvote is being triggered***", this.props.votes);
     if (!this.state.voted) {
     this.setState({
       voted: !this.state.voted,
@@ -28,12 +27,11 @@ class Argument extends React.Component {
       argument: this.props.argument
     })
     .then((response)=> {
-      console.log("success called axios to vote"), response;
       this.setState({points: response.data.data.votes});
       this.setState({voteCount: this.props.votes + 1});
     })
     .catch((err)=> {
-      console.log("error adding vote to arg", err);
+      throw err;
     });
     }
   }
