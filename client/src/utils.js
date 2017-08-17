@@ -5,14 +5,14 @@ return data;
 }
 
 exports.sortArgsByNew = function(data) {
-  let results = [];
+  console.log("this is the timestamp ", data);
   var sorted = data.sort((a, b)=> {
-    return a.updated-b.updated;
+    return new Date(b.updated) - new Date(a.updated);
   });
- // console.log('sort by new', sorted);
+  console.log('sort by new', sorted);
   return sorted;
 }
-
+//2017-08-04T16:03:38.480Z
 
 exports.sortArgsByVote = function(data) {
   let results = [];
@@ -21,10 +21,6 @@ exports.sortArgsByVote = function(data) {
   var sorted = data.sort((a, b)=> {
     return b.votes - a.votes;
   });
-<<<<<<< HEAD
-=======
-  //console.log('sorted args', sorted);
->>>>>>> filter bar completely working, fixed bugs with set interval and filter bar, fixed bug with individual votes created by filter bar, need to fix sort by date util
   return  sorted;
 };
 

@@ -65,10 +65,7 @@ class Position extends React.Component {
     })
     .then(response=> {
         let args = response.data.data;
-<<<<<<< HEAD
-=======
         //console.log("findVOTES HERE ", response.data);
->>>>>>> filter bar completely working, fixed bugs with set interval and filter bar, fixed bug with individual votes created by filter bar, need to fix sort by date util
         let topSortedArgs = sortArgsByVote(args).slice(0, 10);
         let topSortedNew = sortArgsByNew(args).slice(0, 10);
         let topSortedHot= sortArgsByHot(args).slice(0, 10);

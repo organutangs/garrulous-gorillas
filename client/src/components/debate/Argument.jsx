@@ -40,6 +40,7 @@ class Argument extends React.Component {
 
   componentWillMount() {
 
+
   }
 
   render() {
@@ -52,7 +53,7 @@ class Argument extends React.Component {
     return(
       <div>
         <form>{buttonTemplate}
-          Votes: {this.state.voteCount}
+          Votes: {this.props.votes}
           {this.props.argument}
         </form>
       </div>
