@@ -45,7 +45,7 @@ class Argument extends React.Component {
   render() {
     let buttonTemplate = null;
     if (localStorage.position === this.props.position.toLowerCase() || !localStorage.position) {
-      buttonTemplate = <Button onClick={this.handleVote}>
+      buttonTemplate = <Button onClick={this.handleVote} className="drift wiggle">
             {this.state.status}
           </Button>
     }
