@@ -57,6 +57,7 @@ class Argument extends React.Component {
 
   componentWillMount() {
 
+
   }
 
   render() {
@@ -78,7 +79,7 @@ class Argument extends React.Component {
           <table>
             <tr>
               <td>{voteStatus}</td>
-              <td className={this.state.voteClass}>Votes: {this.state.voteCount}</td>
+              <td className={this.state.voteClass}>Votes: {this.props.votes}</td>
             </tr>
           </table>
         </form>
