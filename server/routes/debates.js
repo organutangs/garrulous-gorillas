@@ -97,7 +97,7 @@ router.put('/api/addPtToDebateSide', (req, res) => {
   let side = req.body.side;
   let numOfPoints = req.body.numOfPoints ? req.body.numOfPoints : 1;
 
-  // to add a vote for 
+  // to add a vote for
   ActiveDebate.addPoint(topic, side, numOfPoints, (err, data) => {
     if (err) {
       res.json({
@@ -108,7 +108,7 @@ router.put('/api/addPtToDebateSide', (req, res) => {
         success: true,
         data: data
       });
-    } 
+    }
   });
 });
 
@@ -127,7 +127,7 @@ router.get('/api/getPoints', (req, res) => {
         success: true,
         data: data
       });
-    } 
+    }
   });
 });
 
@@ -136,7 +136,8 @@ router.put('/api/addVoteToArgument', (req, res) => {
   // Currently this is set to querying by body (not by id)
   // let id = req.body.id;
   let argument = req.body.argument;
-  let numOfVotes = req.body.numOfVotes ? req.body.numOfVotes : 1;
+  let numOfVotes = (req.body.numOfVotes) ? req.body.numOfVotes : 0;
+  numOfVotes = numOfVotes + 1;
 
   DebateArg.addVoteForArgumentByBody(argument, numOfVotes, (err, data) => {
     if (err) {
@@ -148,7 +149,7 @@ router.put('/api/addVoteToArgument', (req, res) => {
         success: true,
         data: data
       });
-    } 
+    }
   });
 });
 

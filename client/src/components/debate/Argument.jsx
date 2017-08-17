@@ -9,12 +9,14 @@ class Argument extends React.Component {
     this.state = {
       voted: false,
       status: 'Vote Here',
+      voteCount: this.props.votes
     }
     this.handleVote=this.handleVote.bind(this)
   }
 
-  //this is used
+  //this increases the arguments votes
   handleVote() {
+    console.log("argvote is being triggered***", this.props.votes);
     if (!this.state.voted) {
     this.setState({
       voted: !this.state.voted,
@@ -26,7 +28,12 @@ class Argument extends React.Component {
       argument: this.props.argument
     })
     .then((response)=> {
+      console.log("success called axios to vote"), response;
       this.setState({points: response.data.data.votes});
+      this.setState({voteCount: this.props.votes + 1});
+    })
+    .catch((err)=> {
+      console.log("error adding vote to arg", err);
     });
     }
   }
@@ -45,7 +52,7 @@ class Argument extends React.Component {
     return(
       <div>
         <form>{buttonTemplate}
-          Votes: {this.props.votes}
+          Votes: {this.state.voteCount}
           {this.props.argument}
         </form>
       </div>
