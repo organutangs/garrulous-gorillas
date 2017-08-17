@@ -129,3 +129,8 @@ li.debate-item-style {
 
 }
 
+div#userInfo {
+    height: 100px;
+    background: aliceblue;
+}
+
