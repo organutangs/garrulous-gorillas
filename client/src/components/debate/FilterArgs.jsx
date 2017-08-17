@@ -4,34 +4,36 @@ import ReactDOM from 'react-dom';
 class FilterArgs extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {value: []};
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    //this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
+    console.log("top PROP HELP** ", this.props.top);
+    console.log("NEW PROP HELP** ", this.props.new);
+    console.log("HOT PROP HELP** ", this.props.hot);
+    console.log("this is EVENT*** ", event.target.value);
     this.setState({value: event.target.value});
+    this.props.setArguments(JSON.parse(event.target.value));
+
   }
 
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
-    event.preventDefault();
-  }
-  //when a dropdown is selected i need it to invoke
-  // this.props.setArguments(this.prop.hot)
+  // handleSubmit(event) {
+  //   event.preventDefault;
+  //   console.log(event);
+  //   this.props.setArguments(this.state.value);
+  // }
   render() {
     return (
-      <div class="ui dropdown">
-        <input type="hidden" name="Filter Arguments By: "/>
-        <i class="dropdown icon"></i>
-        <div class="default text">Top Voted</div>
-        <div class="menu">
-          <div class="item" data-value="TopVoted">Top Voted</div>
-          <div class="item" data-value="New">New</div>
-          <div class="item" data-value="Hot">Hot</div>
+        <div>
+          <select value={this.state.value} onChange={this.handleChange}>
+            <option value={JSON.stringify(this.props.top)}>Top Voted</option>
+            <option value={JSON.stringify(this.props.hot)}> Hot </option>
+            <option value={JSON.stringify(this.props.new)}> New </option>
+          </select>
         </div>
-      </div>
 
     );
   }

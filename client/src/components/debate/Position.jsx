@@ -65,6 +65,7 @@ class Position extends React.Component {
         let topSortedArgs = sortArgsByVote(args).slice(0, 10);
         let topSortedNew = sortArgsByNew(args).slice(0, 10);
         let topSortedHot= sortArgsByHot(args).slice(0, 10);
+        console.log("mostvotes ", topSortedArgs,"Hot ",topSortedHot,"New ",topSortedNew);
         this.setState({
           arguments: topSortedArgs,
           topHot: topSortedHot,
@@ -108,9 +109,13 @@ class Position extends React.Component {
           let args = response.data.data;
           //args = body, votes, updated, id, debateSide, debateTopic
           let topSortedArgs = sortArgsByVote(args).slice(0, 10);
+          let topSortedNew = sortArgsByNew(args).slice(0, 10);
+          let topSortedHot= sortArgsByHot(args).slice(0, 10);
           //
           this.setState({
-            arguments: topSortedArgs
+            topHot: topSortedHot,
+            topNew: topSortedNew,
+            topVoted: topSortedArgs
           })
         }
       )
@@ -128,7 +133,8 @@ class Position extends React.Component {
         })
       })
       .catch(err=> console.log(err))
-    }, 5000);
+
+    }, 10000);
   }
 
 
@@ -156,6 +162,8 @@ class Position extends React.Component {
   //pass this function into FilterArgs
   //sortArg is an array of arguments sorted by New or Hot or Top
   setArguments(sortArg) {
+    console.log('***this is sort arg***', sortArg);
+
     this.setState({arguments: sortArg});
   }
 
@@ -174,7 +182,8 @@ class Position extends React.Component {
 
           <FilterArgs new={this.state.topNew} hot={this.state.topHot} top={this.state.topVoted} setArguments={this.setArguments}/>
 
-        {this.state.arguments.map( (argument, index) => <Argument position= {this.props.position} handleVote={this.handleVote} argument={argument.body} votes={argument.votes}/>)}
+          {this.state.arguments.map( (argument, index) => <Argument position= {this.props.position} handleVote={this.handleVote} argument={argument.body} votes={argument.votes}/>)
+        }
       </div>
     )
   }

@@ -1,10 +1,12 @@
 exports.sortArgsByHot = function(data) {
+console.log("sortbyHOT returns data ", data);
 return data;
+
 }
 
 exports.sortArgsByNew = function(data) {
   let results = [];
-  var sorted = data.sort((a,b)=>{
+  var sorted = data.sort((a, b)=> {
     return b.updated-a.updated;
   });
   console.log('sort by new', sorted);
@@ -17,7 +19,7 @@ exports.sortArgsByVote = function(data) {
   // sort array of argument objects
   console.log("thisis data HELP", data);
   var sorted = data.sort((a, b)=> {
-    return b.votes - a.votes;
+    return a.votes - b.votes;
   });
   return  sorted;
 };
