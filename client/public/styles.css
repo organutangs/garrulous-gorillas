@@ -143,6 +143,7 @@ a:hover{
     text-decoration: none
 }
 
+
 @font-face {
     font-family: 'chaparral-pro';
     src: url('./fonts/chaparralpro-regular.eot');
@@ -151,4 +152,9 @@ a:hover{
     url('./fonts/chaparralpro-regular.woff') format('woff'),
     url('./fonts/chaparralpro-regular.ttf') format('truetype'),
     url('./fonts/chaparralpro-regular.svg#ChaparralProRegular') format('svg');
+}
+
+div#userInfo {
+    height: 100px;
+    background: aliceblue;
 }
