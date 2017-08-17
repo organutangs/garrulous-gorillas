@@ -20,7 +20,8 @@ class UserArgs extends React.Component {
     return(
       <div>
         <form>
-          Arguments: 
+          Votes: {this.props.votes}
+          {this.props.argument}
         </form>
       </div>
       )
