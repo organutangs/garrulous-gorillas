@@ -45,10 +45,14 @@ class ArgItem extends React.Component {
   render() {
     return(
       <div>
-        <form>
-          Votes: {this.state.voteCount}
-          {this.props.arg.body}
-        </form>
+        <div>
+          <div className="row">{this.props.arg.body}</div>
+          
+          <div className="row">
+          <div className="col-md-2">Votes: {this.props.arg.votes}</div>
+
+          </div>
+        </div>
       </div>
       )
   }
