@@ -122,15 +122,45 @@ li.debate-item-style {
 
 .debates {
     color: #424242;
-    font-family: 'Playfair Display', serif;
-    text-shadow: 2px 2px 1px rgba(150, 150, 150, 1);
-    font-size: 30px;
+    font-family: chaparral-pro,Georgia,"Times New Roman",Times,serif;
+    font-size: 40px;
 
 
+}
+/*Profile Page css*/
+
+.imgHolder {
+    width: 128px;
+    height: 128px;
+    background: aqua;
+}
+
+/* Base */
+
+a, a:link,
+a:visited {
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+a:hover{
+    text-decoration: none
+}
+
+@font-face {
+    font-family: 'chaparral-pro';
+    src: url('./fonts/chaparralpro-regular.eot');
+    src: url('./fonts/chaparralpro-regular.eot') format('embedded-opentype'),
+    url('./fonts/chaparralpro-regular.woff2') format('woff2'),
+    url('./fonts/chaparralpro-regular.woff') format('woff'),
+    url('./fonts/chaparralpro-regular.ttf') format('truetype'),
+    url('./fonts/chaparralpro-regular.svg#ChaparralProRegular') format('svg');
 }
 
 div#userInfo {
     height: 100px;
     background: aliceblue;
 }
-
