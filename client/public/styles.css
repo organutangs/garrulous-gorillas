@@ -147,7 +147,6 @@ a:hover{
     font-family: 'chaparral-pro';
     src: url('./fonts/chaparralpro-regular.eot');
     src: url('./fonts/chaparralpro-regular.eot') format('embedded-opentype'),
-    url('./fonts/chaparralpro-regular.woff2') format('woff2'),
     url('./fonts/chaparralpro-regular.woff') format('woff'),
     url('./fonts/chaparralpro-regular.ttf') format('truetype'),
     url('./fonts/chaparralpro-regular.svg#ChaparralProRegular') format('svg');

@@ -9,14 +9,24 @@ class Argument extends React.Component {
     this.state = {
       voted: false,
       status: 'Vote Here',
-      voteCount: this.props.votes
+      voteCount: this.props.votes,
+      buttonClass: 'drift bounce'
     }
     this.handleVote=this.handleVote.bind(this)
   }
 
+  onButtonClick() {
+    console.log('vote clicked!');
+    this.setState({ buttonClass: 'drift bounce bounceAnimate'});
+    setInterval(function() {
+      this.setState({ buttonClass: 'drift bounce'});
+    }.bind(this), 100)
+  }
+
   //this increases the arguments votes
   handleVote() {
-    console.log("argvote is being triggered***", this.props.votes);
+    console.log('button click')
+    this.onButtonClick();
     if (!this.state.voted) {
     this.setState({
       voted: !this.state.voted,
@@ -28,7 +38,6 @@ class Argument extends React.Component {
       argument: this.props.argument
     })
     .then((response)=> {
-      console.log("success called axios to vote"), response;
       this.setState({points: response.data.data.votes});
       this.setState({voteCount: this.props.votes + 1});
     })
@@ -45,7 +54,7 @@ class Argument extends React.Component {
   render() {
     let buttonTemplate = null;
     if (localStorage.position === this.props.position.toLowerCase() || !localStorage.position) {
-      buttonTemplate = <Button onClick={this.handleVote} className="drift wiggle">
+      buttonTemplate = <Button onClick={this.handleVote} className={this.state.buttonClass}>
             {this.state.status}
           </Button>
     }
