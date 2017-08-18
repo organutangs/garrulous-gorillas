@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Button, ToggleButtonGroup, ToggleButton } from 'react-bootstrap';
 import axios from 'axios';
+import UserDebItem from './UserDebItem.jsx';
 
 class UserDebates extends React.Component {
   constructor(props) {
@@ -11,8 +12,7 @@ class UserDebates extends React.Component {
       status: 'Vote Here',
     }
   }
-// Votes: {this.props.votes}
-//           {this.props.argument}
+
   componentWillMount() {
 
   }
@@ -20,11 +20,9 @@ class UserDebates extends React.Component {
   render() {
     return(
       <div>
-        <form>
-          Debate list
-        </form>
+        {this.props.debates.map( (debate, index) => <UserDebItem debate={debate}/>)}
       </div>
-      )
+    );
   }
 }
 export default UserDebates;
