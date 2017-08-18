@@ -27,6 +27,7 @@ class Argument extends React.Component {
       argument: this.props.argument
     })
     .then((response)=> {
+      console.log("this is response of a vote ***", response.data);
       this.setState({points: response.data.data.votes});
       this.setState({voteCount: this.props.votes + 1});
     })

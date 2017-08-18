@@ -12,10 +12,10 @@ exports.sortArgsByHot = function(data) {
       return acc + item.vote;
     });
   };
-
+  console.log('***This is Data*** ', data);
   //recentVotes is an array of all arguments that have been voted on in the last 30days
-  let recentVotes = data.voteData.filter((item)=> {
-    return new Date(item.date) > new Date(time);
+  let recentVotes = data.filter((item)=> {
+    return new Date(item.voteDate.date) > new Date(time);
   });
 
   //total votes this argument has received in 30 days
