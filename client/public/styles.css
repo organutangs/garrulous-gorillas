@@ -128,15 +128,6 @@ li.debate-item-style {
 
 }
 /*Profile Page css*/
-<<<<<<< HEAD
-=======
-
-.imgHolder {
-    width: 128px;
-    height: 128px;
-    background: aqua;
-}
->>>>>>> profile2
 
 .imgHolder {
     width: 128px;
@@ -144,7 +135,11 @@ li.debate-item-style {
     background: aqua;
 }
 
-<<<<<<< HEAD
+.imgHolder {
+    width: 128px;
+    height: 128px;
+    background: aqua;
+}
 /* Base */
 
 a, a:link,
@@ -170,7 +165,6 @@ a:hover{
     url('./fonts/chaparralpro-regular.svg#ChaparralProRegular') format('svg');
 }
 
-<<<<<<< HEAD
 .voted{
     color: dodgerblue;
 }
@@ -185,9 +179,3 @@ div#userInfo {
     background: aliceblue;
 }
 
-=======
-div#userInfo {
-    height: 100%;
-    background: aliceblue;
-}
->>>>>>> profile2
