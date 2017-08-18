@@ -7,7 +7,6 @@ class UserInfo extends React.Component {
     super(props);
     this.state = {
       value: '',
-      user: this.props.user,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -37,20 +36,23 @@ class UserInfo extends React.Component {
   render() {
     return (
       <div>
-        <div className="col-md-2 UserImage" >
-          <div className="imgHolder">image</div>
+        <div className="col-md-3 UserImage" >
+          <div className="imgHolder">
+            <img src={this.props.user.img} width="128" height="128"></img>
+          </div>
         </div>
-        <div className="col-md-6 UserInfo">
+        <div className="col-md-9 UserInfo">
           <div className="row UserName">
             Your Name
           </div>
           <div className="row UserStats">
-            <div className="col-md-2">08/17/2017</div>
-            <div className="col-md-1">D4</div>
-            <div className="col-md-1">A7</div>
-            <div className="col-md-1">M35</div>
+            <div className="col-md-2 date">{this.props.user.createdDate}</div>
+            <div className="col-md-1 numD">{this.props.debates.length}</div>
+            <div className="col-md-1 numA">{this.props.args.length}</div>
+            <div className="col-md-1 numM">{this.props.user.msgs}</div>
           </div>
           <div className="row UserDescription">
+            <div className="description">{this.props.user.info}</div>
             <form onSubmit={this.handleSubmit}>
               <label>
                 Edit your information:
