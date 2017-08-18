@@ -10,17 +10,25 @@ class Argument extends React.Component {
       voted: false,
       status: 'Vote Here',
       voteCount: this.props.votes,
-      buttonClass: 'drift bounce'
+      argumentClass: 'slide',
+      voteClass: 'wiggleStatic'
     }
-    this.handleVote=this.handleVote.bind(this)
+    this.handleVote=this.handleVote.bind(this);
+
+    // if ((this.state.buttonClass).includes('bounceAnimate'))
   }
 
   onButtonClick() {
     console.log('vote clicked!');
-    this.setState({ buttonClass: 'drift bounce bounceAnimate'});
+    this.setState({ buttonClass: 'bounce bounceAnimate', argumentClass: 'slide slideAnimate', voteClass: 'wiggleStatic wiggleAnimate' });
+
     setInterval(function() {
-      this.setState({ buttonClass: 'drift bounce'});
-    }.bind(this), 100)
+      this.setState({ buttonClass: 'bounce'});
+    }.bind(this), 200);
+
+    setInterval(function() {
+      this.setState({ argumentClass: 'slide', voteClass: 'wiggleStatic' })
+    }.bind(this), 350)
   }
 
   //this increases the arguments votes
@@ -52,17 +60,27 @@ class Argument extends React.Component {
   }
 
   render() {
-    let buttonTemplate = null;
+    let voteStatus = null;
     if (localStorage.position === this.props.position.toLowerCase() || !localStorage.position) {
-      buttonTemplate = <Button onClick={this.handleVote} className={this.state.buttonClass}>
-            {this.state.status}
-          </Button>
+      if (this.state.status === 'Vote Here') {
+        voteStatus = <Button onClick={this.handleVote}>
+          {this.state.status}
+        </Button>
+      } else {
+        voteStatus = <p className="voted">Voted!</p>
+      }
+
     }
     return(
       <div>
-        <form>{buttonTemplate}
-          Votes: {this.state.voteCount}
-          {this.props.argument}
+        <form>
+          <p className={this.state.argumentClass}>{this.props.argument}</p>
+          <table>
+            <tr>
+              <td>{voteStatus}</td>
+              <td className={this.state.voteClass}>Votes: {this.state.voteCount}</td>
+            </tr>
+          </table>
         </form>
       </div>
       )

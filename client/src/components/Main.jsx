@@ -17,15 +17,28 @@ class Main extends React.Component {
     this.state = {
       debates: [],
       newTopic: '',
+      buttonClass: 'bounce',
     };
 
     this.handleNewTopic = (topic) => {
       this.setState({
         newTopic: topic,
       });
-    };
+    }
+
+    this.onButtonClick = () => {
+      console.log('vote clicked!');
+      this.setState({ buttonClass: 'bounce bounceAnimate'});
+
+      setInterval(function() {
+        this.setState({ buttonClass: 'bounce'});
+      }.bind(this), 10);
+    }
 
     this.newDebate = (topic) => {
+      console.log('new debate')
+      this.onButtonClick();
+
       axios.post('http://localhost:3000/debates/api/post', {
         topic: topic,
       }).then((response)=>{
@@ -64,7 +77,7 @@ class Main extends React.Component {
             <h5>Create New Topic</h5>
             <form>
               <input type="text" name="topic" onChange={(e)=>{this.handleNewTopic(e.target.value)}} />
-              <button onClick={(e)=>{this.newDebate.call(this, this.state.newTopic)}}>Create Topic</button>
+              <button className={this.state.buttonClass} onClick={(e)=>{this.newDebate.call(this, this.state.newTopic)}}>Create Topic</button>
             </form>
           </div>
         <ul className='debates'>
