@@ -21,7 +21,7 @@ class Profile extends React.Component {
 
     this.state = {
       categories: [],
-      user: {name: 'Luke Skywalker', createdDate: '07/17/2017', msgs:'25', info: 'Raised on a small farm on Tatooine, Luke had a simple life until the day he bought some droids to work as helpers. This event set him on the path to become one of the greatest Jedis in the galaxy and to play a key part in the toppling of the Empire.'},
+      user: {img: 'https://pbs.twimg.com/profile_images/680269671073988608/9seMbtxC.jpg', name: 'Luke Skywalker', createdDate: '07/17/2017', msgs:'25', info: 'Raised on a small farm on Tatooine, Luke had a simple life until the day he bought some droids to work as helpers. This event set him on the path to become one of the greatest Jedis in the galaxy and to play a key part in the toppling of the Empire.'},
       debates: [
         {
           updated: '08/17/2017',

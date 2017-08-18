@@ -160,6 +160,6 @@ a:hover{
 }
 
 div#userInfo {
-    height: 100px;
+    height: 100%;
     background: aliceblue;
 }
