@@ -7,7 +7,7 @@ const DebateItem = (props) => {
 
   return (
     <li className="debate-item-style">
-    	<Link to={`debates/${props.debate.topic.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '').toLowerCase()}`} onClick={()=>props.debateSelectHandler(props.debate)}>
+    	<Link className="cruise" to={`debates/${props.debate.topic.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '').toLowerCase()}`} onClick={()=>props.debateSelectHandler(props.debate)}>
       {props.debate.topic }
     	</Link>
   	</li>

@@ -151,3 +151,11 @@ a:hover{
     url('./fonts/chaparralpro-regular.ttf') format('truetype'),
     url('./fonts/chaparralpro-regular.svg#ChaparralProRegular') format('svg');
 }
+
+.voted{
+    color: dodgerblue;
+}
+
+td{
+    padding:0 15px 0 15px;
+}
