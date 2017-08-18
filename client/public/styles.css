@@ -127,6 +127,13 @@ li.debate-item-style {
 
 
 }
+/*Profile Page css*/
+
+.imgHolder {
+    width: 128px;
+    height: 128px;
+    background: aqua;
+}
 
 <<<<<<< HEAD
 /* Base */

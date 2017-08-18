@@ -34,27 +34,29 @@ class UserInfo extends React.Component {
   render() {
     return (
       <div>
-        <div className="col-md-6 UserImage" ></div>
+        <div className="col-md-2 UserImage" >
+          <div className="imgHolder">image</div>
+        </div>
         <div className="col-md-6 UserInfo">
           <div className="row UserName">
             Your Name
           </div>
           <div className="row UserStats">
-            <div>joined</div>
-            <div>debates</div>
-            <div>arguments</div>
-            <div>messages</div>
+            <div className="col-md-2">08/17/2017</div>
+            <div className="col-md-1">D4</div>
+            <div className="col-md-1">A7</div>
+            <div className="col-md-1">M35</div>
           </div>
-          <div className="row UserDescription"></div>
+          <div className="row UserDescription">
+            <form onSubmit={this.handleSubmit}>
+              <label>
+                Edit your information:
+                <input type="text" value={this.state.value} onChange={this.handleChange} />
+              </label>
+              <input type="submit" value="Submit" />
+            </form>
+          </div>
         </div>
-
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Edit your information:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
       </div>
     );
   }

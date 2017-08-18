@@ -11,7 +11,8 @@ class UserDebates extends React.Component {
       status: 'Vote Here',
     }
   }
-
+// Votes: {this.props.votes}
+//           {this.props.argument}
   componentWillMount() {
 
   }
@@ -20,8 +21,7 @@ class UserDebates extends React.Component {
     return(
       <div>
         <form>
-          Votes: {this.props.votes}
-          {this.props.argument}
+          Debate list
         </form>
       </div>
       )
