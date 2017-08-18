@@ -11,7 +11,8 @@ class UserDebates extends React.Component {
       status: 'Vote Here',
     }
   }
-
+// Votes: {this.props.votes}
+//           {this.props.argument}
   componentWillMount() {
 
   }
