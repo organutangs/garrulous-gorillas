@@ -8,7 +8,7 @@ const DebateArgSchema = mongoose.Schema({
   debateSide: String,
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   activeDebate: { type: mongoose.Schema.Types.ObjectId, ref: 'Debate' },
-  voteDate: [{vote:Number, date:{type:Date, default:Date.now}}]
+  voteDate: [{vote:Number, date:{ type: Date, default: Date.now }}]
 });
 
 const DebateArg = module.exports = mongoose.model('DebateArg', DebateArgSchema);
@@ -32,6 +32,7 @@ module.exports.addVoteForArgumentById = (id, numOfVotes, callback) => {
 };
 
 // Find the active debate by argumentText and add to number of votes for a particular side
+//also push a {vote:1, date:now} tupule for record keeping
 module.exports.addVoteForArgumentByBody = (argument, numOfVotes, callback) => {
   DebateArg.findOneAndUpdate(
     { body: argument },
