@@ -21,7 +21,81 @@ class Profile extends React.Component {
 
     this.state = {
       categories: [],
-    }
+      user: {name: 'Luke Skywalker', created: '07/17/2017', msgs:'25', info: 'Raised on a small farm on Tatooine, Luke had a simple life until the day he bought some droids to work as helpers. This event set him on the path to become one of the greatest Jedis in the galaxy and to play a key part in the toppling of the Empire.'},
+      debates: [
+        {
+          updated: '08/17/2017',
+          topic: 'Trump\'s Hair',
+          winner: 'against',
+          pointsFor: 62,
+          pointsAgainst: 9000,
+        },
+        {
+          updated: '08/17/2017',
+          topic: 'Trump\'s Hair',
+          winner: 'against',
+          pointsFor: 62,
+          pointsAgainst: 9000,
+        },
+        {
+          updated: '08/17/2017',
+          topic: 'Trump\'s Hair',
+          winner: 'against',
+          pointsFor: 62,
+          pointsAgainst: 9000,
+        },
+        {
+          updated: '08/17/2017',
+          topic: 'Trump\'s Hair',
+          winner: 'against',
+          pointsFor: 62,
+          pointsAgainst: 9000,
+        },
+      ],
+      args: [
+        {
+          createDate: '08/17/2017',
+          body: 'orange hair',
+          votes: 5,
+          topic: 'Trump\'s Hair',
+          side: 'against',
+          user: 'Padme',
+        },
+        {
+          createDate: '08/17/2017',
+          body: 'orange hair',
+          votes: 5,
+          topic: 'Trump\'s Hair',
+          side: 'against',
+          user: 'Padme',
+        },
+        {
+          createDate: '08/17/2017',
+          body: 'orange hair',
+          votes: 5,
+          topic: 'Trump\'s Hair',
+          side: 'against',
+          user: 'Padme',
+        },
+        {
+          createDate: '08/17/2017',
+          body: 'orange hair',
+          votes: 5,
+          topic: 'Trump\'s Hair',
+          side: 'against',
+          user: 'Padme',
+        },
+        {
+          createDate: '08/17/2017',
+          body: 'orange hair',
+          votes: 5,
+          topic: 'Trump\'s Hair',
+          side: 'against',
+          user: 'Padme',
+        },
+      ],
+
+    };
   }
 
   componentDidMount() {
@@ -29,20 +103,19 @@ class Profile extends React.Component {
 
   render() {
     return (
-      <div className='profile'>
+      <div className="profile">
         <div className="container">
           <h1 className="title">Profile</h1>
           <h3 className="caption"> Who are you? </h3>
           <div className="row" id="userInfo">
-            <div>My Info</div>
-            <UserInfo/>
+            <UserInfo user={this.state.user}/>
           </div>
-          <div className="row" id ="Activity">
-            <div className="col-md-6" id ="userDebates">
+          <div className="row" id="Activity">
+            <div className="col-md-6" id="userDebates">
               What are you debating?
               <UserDebates/>
             </div>
-            <div className="col-md-6" id ="userArguments">
+            <div className="col-md-6" id="userArguments">
               What are your arguments?
               <UserArgs/>
               <div>Arg1</div>
@@ -50,7 +123,7 @@ class Profile extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
