@@ -5,7 +5,10 @@ import axios from 'axios';
 class UserInfo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {
+      value: '',
+      user: this.props.user,
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);

@@ -135,7 +135,6 @@ li.debate-item-style {
     background: aqua;
 }
 
-<<<<<<< HEAD
 /* Base */
 
 a, a:link,
@@ -151,7 +150,6 @@ a:hover{
     text-decoration: none
 }
 
-
 @font-face {
     font-family: 'chaparral-pro';
     src: url('./fonts/chaparralpro-regular.eot');
@@ -165,4 +163,3 @@ div#userInfo {
     height: 100px;
     background: aliceblue;
 }
-

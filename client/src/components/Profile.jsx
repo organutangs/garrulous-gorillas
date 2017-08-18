@@ -21,7 +21,7 @@ class Profile extends React.Component {
 
     this.state = {
       categories: [],
-      user: {name: 'Luke Skywalker', created: '07/17/2017', msgs:'25', info: 'Raised on a small farm on Tatooine, Luke had a simple life until the day he bought some droids to work as helpers. This event set him on the path to become one of the greatest Jedis in the galaxy and to play a key part in the toppling of the Empire.'},
+      user: {name: 'Luke Skywalker', createdDate: '07/17/2017', msgs:'25', info: 'Raised on a small farm on Tatooine, Luke had a simple life until the day he bought some droids to work as helpers. This event set him on the path to become one of the greatest Jedis in the galaxy and to play a key part in the toppling of the Empire.'},
       debates: [
         {
           updated: '08/17/2017',
@@ -108,16 +108,20 @@ class Profile extends React.Component {
           <h1 className="title">Profile</h1>
           <h3 className="caption"> Who are you? </h3>
           <div className="row" id="userInfo">
-            <UserInfo user={this.state.user}/>
+            <UserInfo
+              user={this.state.user}
+              debates={this.state.debates}
+              args={this.state.args}
+            />
           </div>
           <div className="row" id="Activity">
             <div className="col-md-6" id="userDebates">
               What are you debating?
-              <UserDebates/>
+              <UserDebates debates={this.state.debates} />
             </div>
             <div className="col-md-6" id="userArguments">
               What are your arguments?
-              <UserArgs/>
+              <UserArgs args={this.state.args} />
               <div>Arg1</div>
             </div>
           </div>
