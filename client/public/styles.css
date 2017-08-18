@@ -127,7 +127,19 @@ li.debate-item-style {
 
 
 }
+/*Profile Page css*/
 
+.imgHolder {
+    width: 128px;
+    height: 128px;
+    background: aqua;
+}
+
+.imgHolder {
+    width: 128px;
+    height: 128px;
+    background: aqua;
+}
 /* Base */
 
 a, a:link,
@@ -142,6 +154,7 @@ a:visited {
 a:hover{
     text-decoration: none
 }
+
 
 @font-face {
     font-family: 'chaparral-pro';
@@ -159,3 +172,9 @@ a:hover{
 td{
     padding:0 15px 0 15px;
 }
+
+div#userInfo {
+    height: 100%;
+    background: aliceblue;
+}
+
