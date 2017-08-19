@@ -17,11 +17,11 @@ class UserDebItem extends React.Component {
 
   render() {
   return(
-      <div>
+      <div className="debItem">
         <div>
-          <div className="row">{this.props.debate.topic}</div>
-          <div className="row">
-            <div className="debateTopic">{this.props.debate.winner}</div> 
+          <div className="row debateTopic">{this.props.debate.topic}</div>
+          <div className="row ">
+            <div className="debateWinner">{this.props.debate.winner}</div> 
           </div>
           <div className="row">
             <div className="col-md-2">{this.props.debate.updated}</div>
