@@ -65,7 +65,6 @@ class Position extends React.Component {
     })
     .then(response=> {
         let args = response.data.data;
-
         let topSortedArgs = sortArgsByVote(args).slice(0, 10);
         let topSortedNew = sortArgsByNew(args).slice(0, 10);
         let topSortedHot= sortArgsByHot(args).slice(0, 10);
