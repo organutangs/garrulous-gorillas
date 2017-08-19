@@ -110,8 +110,6 @@ class Profile extends React.Component {
     return (
       <div className="profile">
         <div className="container">
-          <h1 className="title">Profile</h1>
-          <h3 className="caption"> Who are you? </h3>
           <div className="row col-md-9" id="userInfo">
             <UserInfo
               user={this.state.user}
@@ -121,11 +119,9 @@ class Profile extends React.Component {
           </div>
           <div className="row" id="Activity">
             <div className="col-md-6" id="userDebates">
-              What are you debating?
               <UserDebates debates={this.state.debates} />
             </div>
             <div className="col-md-6" id="userArguments">
-              What are your arguments?
               <UserArgs args={this.state.args} />
               <div>Arg1</div>
             </div>
