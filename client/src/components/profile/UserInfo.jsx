@@ -35,10 +35,13 @@ class UserInfo extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="infoPadding">
         <div className="col-md-3 UserImage" >
           <div className="imgHolder">
             <img src={this.props.user.img} width="128" height="128"></img>
+          </div>
+          <div>
+            <button>Edit</button>
           </div>
         </div>
         <div className="col-md-9 UserInfo">
