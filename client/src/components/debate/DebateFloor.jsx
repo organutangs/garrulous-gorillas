@@ -72,16 +72,20 @@ class DebateFloor extends React.Component {
           <div className="col-md-6 col-md-offset-3"><h2>{this.props.currentDebateSelected.topic}</h2></div>
         </div>
           <div className="row">
-            <Position position="For" 
-                      setToken={this.setToken.bind(this, 'for')} 
-                      showJoinButton={this.state.showJoinButton}
-                      // change to props later
-                      topic={this.state.topic} />
-            <Position position="Against" 
-                      setToken={this.setToken.bind(this, 'against')} 
-                      showJoinButton={this.state.showJoinButton}
-                      // change to props later
-                      topic={this.state.topic} />
+            <div className="posContainer">
+              <Position position="For" 
+                        setToken={this.setToken.bind(this, 'for')} 
+                        showJoinButton={this.state.showJoinButton}
+                        // change to props later
+                        topic={this.state.topic} />
+            </div>
+            <div className="posContainer">
+              <Position position="Against" 
+                        setToken={this.setToken.bind(this, 'against')} 
+                        showJoinButton={this.state.showJoinButton}
+                        // change to props later
+                        topic={this.state.topic} />
+            </div>
           </div>
           <div className='row' >
             { localStorage.position === 'for' ? <ForView setToken={this.setToken.bind(this, 'spectator')}/> : null}

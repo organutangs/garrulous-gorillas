@@ -68,6 +68,10 @@ body {
     background-color: #555;
 }
 
+.argContainer {
+    margin: 0.3em 0em 0.3em 0em;
+    overflow: auto;
+}
 form, input, h1, h4, DebateItem {
     margin: 20px;
 }
@@ -224,5 +228,6 @@ td{
     border-radius: 5px 5px 5px 5px !important;
     box-shadow: 0 0 5px 0 gray;
     padding: 20px 20px 20px 20px;
+    margin: 0.2em;
 }
 

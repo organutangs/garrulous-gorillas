@@ -198,9 +198,9 @@ class Position extends React.Component {
           <AddArgForm topic={this.props.topic} position={this.props.position} addArguments={this.addArguments}/>
 
           <FilterArgs new={this.state.topNew} hot={this.state.topHot} top={this.state.topVoted} setArguments={this.setArguments} setFilter={this.setCurrentFilter}/>
-
-          {this.state.arguments.map( (argument, index) => <Argument position= {this.props.position} handleVote={this.handleVote} argument={argument.body} votes={argument.votes}/>)
-        }
+          <div className="argContainer">
+          {this.state.arguments.map( (argument, index) => <Argument position= {this.props.position} handleVote={this.handleVote} argument={argument.body} votes={argument.votes}/>)}
+          </div>
       </div>
     )
   }

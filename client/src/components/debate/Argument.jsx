@@ -75,15 +75,11 @@ class Argument extends React.Component {
 
     }
     return(
-      <div>
-        <form>
+      <div className="boxStandard">
+        <form style={{margin: "0px"}}>
           <p className={this.state.argumentClass}>{this.props.argument}</p>
-          <table>
-            <tr>
-              <td>{voteStatus}</td>
-              <td className={this.state.voteClass}>Votes: {this.props.votes}</td>
-            </tr>
-          </table>
+          <div>{voteStatus}</div>
+          <div className={this.state.voteClass}>Votes: {this.props.votes}</div>
         </form>
       </div>
       )
