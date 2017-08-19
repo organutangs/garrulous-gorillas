@@ -69,8 +69,9 @@ body {
 }
 
 .argContainer {
-    margin: 0.3em 0em 0.3em 0em;
+    margin: 0.3em 0em 2.3em 0em;
     overflow: auto;
+    height: 500px;
 }
 form, input, h1, h4, DebateItem {
     margin: 20px;
@@ -156,6 +157,16 @@ div#userInfo {
    /* background: aliceblue;*/
 }
 
+div#userDebates {
+    overflow: auto;
+    height: 500px;
+}
+
+div#userArguments {
+    overflow: auto;
+    height: 500px;
+}
+
 .imgHolder {
     width: 128px;
     height: 128px;
@@ -228,6 +239,7 @@ td{
     border-radius: 5px 5px 5px 5px !important;
     box-shadow: 0 0 5px 0 gray;
     padding: 20px 20px 20px 20px;
-    margin: 0.2em;
+    margin: 0.3em;
+    background: lightgray;
 }
 
