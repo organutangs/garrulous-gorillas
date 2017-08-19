@@ -50,11 +50,9 @@ exports.sortArgsByHot = function(data) {
 }
 
 exports.sortArgsByNew = function(data) {
-  console.log("this is the timestamp ", data);
   var sorted = data.sort((a, b)=> {
     return new Date(b.updated) - new Date(a.updated);
   });
-  console.log('sort by new', sorted);
   return sorted;
 }
 
