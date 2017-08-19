@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 class FilterArgs extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: "select an arguments filter"};
+    this.state = {value: "defaulted to top"};
 
     this.handleChange = this.handleChange.bind(this);
   }
@@ -20,7 +20,6 @@ class FilterArgs extends React.Component {
     } else {
       this.props.setArguments(this.props.new);
     }
-
   }
 
   render() {

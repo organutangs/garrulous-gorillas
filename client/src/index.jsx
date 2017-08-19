@@ -13,7 +13,7 @@ import DebateFloor from './components/debate/DebateFloor.jsx';
 import Login from './components/login/login.jsx';
 import SignUp from './components/signup/signup.jsx';
 import Landing from './components/Landing.jsx';
-
+import Profile from './components/Profile.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -46,11 +46,12 @@ class App extends React.Component {
         <Nav />
 
         <Switch>
-          <Route exact path="/" component={Landing}/>
-          <Route exact path="/debates" component={ () => <Main debateSelectHandler={this.debateSelectHandler} debateIsSelected={this.debateIsSelected} currentDebate={this.state.currentDebate}/> }/>
+          {/*<Route exact path="/" component={Landing}/>*/}
+          <Route exact path="/" component={ () => <Main debateSelectHandler={this.debateSelectHandler} debateIsSelected={this.debateIsSelected} currentDebate={this.state.currentDebate}/> }/>
           <Route exact path="/login" component={Login}/>
           <Route exact path="/signup" component={SignUp}/>
           <Route path="/debates" component= { ()=> <DebateFloor currentDebateSelected={this.state.currentDebateSelected} debateIsSelected={this.state.debateIsSelected}/> } />
+          <Route exact path="/home" component={Profile}/>
         </Switch>
       </div>)
   }
