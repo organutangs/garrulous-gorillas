@@ -44,7 +44,7 @@ class ArgItem extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="argItem boxStandard">
         <div>
           <div className="row">{this.props.arg.body}</div>
           <div className="row">

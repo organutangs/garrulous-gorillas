@@ -32,21 +32,21 @@ class Profile extends React.Component {
         },
         {
           updated: '08/17/2017',
-          topic: 'Trump\'s Hair',
+          topic: 'A New Hope',
           winner: 'against',
           pointsFor: 62,
           pointsAgainst: 9000,
         },
         {
           updated: '08/17/2017',
-          topic: 'Trump\'s Hair',
+          topic: 'Is Rogue One Better Than Phantom Menace?',
           winner: 'against',
           pointsFor: 62,
           pointsAgainst: 9000,
         },
         {
           updated: '08/17/2017',
-          topic: 'Trump\'s Hair',
+          topic: 'Is BB-8 Better Than R2-D2?',
           winner: 'against',
           pointsFor: 62,
           pointsAgainst: 9000,
@@ -55,16 +55,16 @@ class Profile extends React.Component {
       args: [
         {
           updated: '08/17/2017',
-          body: 'orange hair',
+          body: 'R2 is the best ever',
           votes: 75,
-          debateTopic: 'Trump\'s Hair',
+          debateTopic: 'Is BB-8 Better Than R2-D2?',
           debateSide: 'against',
           user: 'Padme',
           activeDebate: false,
         },
         {
           updated: '08/17/2017',
-          body: 'orange hair',
+          body: 'His hair is actually a dead cat',
           votes: 75,
           debateTopic: 'Trump\'s Hair',
           debateSide: 'against',
@@ -104,9 +104,101 @@ class Profile extends React.Component {
   }
 
 
+  // componentWillMount() {
 
-  componentDidMount() {
-  }
+  //   axios.get('http://127.0.0.1:3000/debates/api/getArgs', {
+  //     params: {
+  //       // CHnage this hard code
+  //       user: localStorage.username;
+  //     }
+  //   })
+  //   .then(response=> {
+  //       let args = response.data.data;
+  //       let topSortedArgs = sortArgsByVote(args).slice(0, 10);
+  //       let topSortedNew = sortArgsByNew(args).slice(0, 10);
+  //       let topSortedHot= sortArgsByHot(args).slice(0, 10);
+  //       //console.log("mostvotes ", topSortedArgs,"Hot ",topSortedHot,"New ",topSortedNew);
+  //       this.setState({
+  //         args: args,
+  //         topHot: topSortedHot,
+  //         topNew: topSortedNew,
+  //         topVoted: topSortedArgs,
+  //         currentFilter: topSortedArgs
+  //       })
+  //     }
+  //   )
+
+  //   axios.get('http://127.0.0.1:3000/debates/api/getPoints', {
+  //     params: {
+  //       // Change this hard code
+  //       user: localStorage.username;
+  //     }
+  //   })
+  //   .then(response=> {
+  //     let position = this.props.position === 'For' ? 'Pro' : 'Con';
+  //     let updatedPoints = response.data.data[`points${position}`]
+  //     this.setState({
+  //       debates: response.data.data
+  //       points : updatedPoints,
+  //     })
+  //   })
+  //   .catch(err=> console.log(err))
+  // }
+
+  // componentDidMount() {
+  //   // Query Database using set interval and axios for the amount of votes, and arguments
+
+  //   // Query DB for all args from this debate topic and this position
+  //   // Set to state, arguments
+  //   // position = this.props.position
+  //   // {this.state.positions.map((position, index) => <Position handleVote={this.handleVote} key={index} position={position} />)}
+  //   this.intervalId = setInterval(()=> {
+  //     axios.get('http://127.0.0.1:3000/debates/api/getArgs', {
+  //       params: {
+  //         user: localStorage.username
+  //       }
+  //     })
+  //     .then(response=> {
+  //         let args = response.data.data;
+  //         //args = body, votes, updated, id, debateSide, debateTopic
+  //         let topSortedArgs = sortArgsByVote(args).slice(0, 10);
+  //         let topSortedNew = sortArgsByNew(args).slice(0, 10);
+  //         let topSortedHot= sortArgsByHot(args).slice(0, 10);
+
+  //         let currentList;
+  //         if (this.state.currentFilter === "Top Voted") {
+  //           currentList = topSortedArgs;
+  //         } else if (this.state.currentFilter === "Hot") {
+  //           currentList = topSortedHot;
+  //         } else {
+  //           currentList = topSortedNew;
+  //         }
+  //         //
+  //         this.setState({
+  //           topHot: topSortedHot,
+  //           topNew: topSortedNew,
+  //           topVoted: topSortedArgs,
+  //           arguments: currentList
+  //         })
+  //       }
+  //     )
+
+  //     axios.get('http://127.0.0.1:3000/debates/api/getPoints', {
+  //       params: {
+  //         topic: this.state.topic
+  //       }
+  //     })
+  //     .then(response=> {
+  //       let position = this.props.position === 'For' ? 'Pro' : 'Con';
+  //       let updatedPoints = response.data.data[`points${position}`]
+  //       this.setState({
+  //         points : updatedPoints,
+  //       })
+  //     })
+  //     .catch(err=> console.log(err))
+
+  //   }, 5000);
+  // }
 
   render() {
     return (
@@ -119,8 +211,17 @@ class Profile extends React.Component {
               args={this.state.args}
             />
           </div>
+          <div className="row" id="titles">
+              <div className="col-md-6">
+                <div><h5>Your Debates</h5></div>
+              </div>
+              <div className="col-md-6">
+                <div><h5>Your Arguments</h5></div>
+              </div>
+          </div>
           <div className="row" id="Activity">
             <div className="activityContainer">
+              <div><h5></h5></div>
               <div className="col-md-6" id="userDebates">
                 <UserDebates debates={this.state.debates} />
               </div>

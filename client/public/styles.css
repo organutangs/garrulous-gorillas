@@ -1,4 +1,12 @@
 
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+    background-image: url(http://www.publicdomainpictures.net/pictures/220000/velka/white-bokeh-background-1493135167q8w.jpg);
+}
 
 .chat
 {
@@ -60,6 +68,11 @@
     background-color: #555;
 }
 
+.argContainer {
+    margin: 0.3em 0em 2.3em 0em;
+    overflow: auto;
+    height: 500px;
+}
 form, input, h1, h4, DebateItem {
     margin: 20px;
 }
@@ -69,7 +82,10 @@ ul {
 }
 
 li.debate-item-style {
-    padding: 0.3em 0em;
+    padding: 0.3em 0.3em;
+    border-radius: 5px 5px 5px 5px !important;
+    box-shadow: 0 0 5px 0 grey;
+    margin: 0.1em;
 }
 
 .landing {
@@ -126,22 +142,61 @@ li.debate-item-style {
 .debates {
     color: #424242;
     font-family: chaparral-pro,Georgia,"Times New Roman",Times,serif;
-    font-size: 40px;
+    font-size: 30px;
+    overflow: auto;
+    height: 500px;
+ 
+}
 
-
+::-webkit-scrollbar { 
+    display: none; 
 }
 /*Profile Page css*/
+div#userInfo {
+    height: 100%;
+   /* background: aliceblue;*/
+}
 
-.imgHolder {
-    width: 128px;
-    height: 128px;
-    background: aqua;
+div#userDebates {
+    overflow: auto;
+    height: 500px;
+}
+
+div#userArguments {
+    overflow: auto;
+    height: 500px;
 }
 
 .imgHolder {
     width: 128px;
     height: 128px;
-    background: aqua;
+    background: transparent;
+}
+
+img#ProfilePic {
+    border-radius: 50%;
+}
+
+.profile {
+    margin: 2% 1% 1% 3%;
+}
+
+.infoPadding {
+    margin: 3% 1% 1% 1%;
+}
+
+.date {
+    padding: 0;
+}
+
+.debItem {
+    padding: 1%;
+    margin: 1%;
+}
+
+.argItem {
+    padding: 1%;
+    margin: 1%;
 }
 /* Base */
 
@@ -176,15 +231,14 @@ td{
     padding:0 15px 0 15px;
 }
 
-div#userInfo {
-    height: 100%;
-    background: aliceblue;
-}
+
 
 .boxStandard
 {
     border-radius: 5px 5px 5px 5px !important;
     box-shadow: 0 0 5px 0 gray;
     padding: 20px 20px 20px 20px;
+    margin: 0.3em;
+    background: lightgray;
 }
 
