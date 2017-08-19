@@ -71,7 +71,7 @@ class Main extends React.Component {
 
     if (!debateIsSelected) {
       return (
-        <div className ='col-md-12 boxStandard'>
+        <div className ='col-md-6'>
         <h4>List of Debates</h4>
         <div className="newTopic">
             <h5>Create New Topic</h5>
@@ -80,7 +80,7 @@ class Main extends React.Component {
               <button className={this.state.buttonClass} onClick={(e)=>{this.newDebate.call(this, this.state.newTopic)}}>Create Topic</button>
             </form>
           </div>
-        <ul className='debates' className='boxStandard'>
+        <ul className='debates'>
         { this.state.debates.map( (debate, i) => <DebateItem debate={debate} key={i} debateSelectHandler={this.props.debateSelectHandler} /> ) }
         </ul>
         <Switch>

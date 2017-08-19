@@ -17,7 +17,7 @@ class UserDebItem extends React.Component {
 
   render() {
   return(
-      <div className="debItem">
+      <div className="debItem boxStandard">
         <div>
           <div className="row debateTopic">{this.props.debate.topic}</div>
           <div className="row ">
