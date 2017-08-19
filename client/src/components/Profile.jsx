@@ -54,44 +54,49 @@ class Profile extends React.Component {
       ],
       args: [
         {
-          createDate: '08/17/2017',
+          updated: '08/17/2017',
           body: 'orange hair',
-          votes: 5,
-          topic: 'Trump\'s Hair',
-          side: 'against',
+          votes: 75,
+          debateTopic: 'Trump\'s Hair',
+          debateSide: 'against',
           user: 'Padme',
+          activeDebate: false,
         },
         {
-          createDate: '08/17/2017',
+          updated: '08/17/2017',
           body: 'orange hair',
-          votes: 5,
-          topic: 'Trump\'s Hair',
-          side: 'against',
+          votes: 75,
+          debateTopic: 'Trump\'s Hair',
+          debateSide: 'against',
           user: 'Padme',
+          activeDebate: false,
         },
         {
-          createDate: '08/17/2017',
+          updated: '08/17/2017',
           body: 'orange hair',
-          votes: 5,
-          topic: 'Trump\'s Hair',
-          side: 'against',
+          votes: 75,
+          debateTopic: 'Trump\'s Hair',
+          debateSide: 'against',
           user: 'Padme',
+          activeDebate: false,
         },
         {
-          createDate: '08/17/2017',
+          updated: '08/17/2017',
           body: 'orange hair',
-          votes: 5,
-          topic: 'Trump\'s Hair',
-          side: 'against',
+          votes: 75,
+          debateTopic: 'Trump\'s Hair',
+          debateSide: 'against',
           user: 'Padme',
+          activeDebate: false,
         },
         {
-          createDate: '08/17/2017',
+          updated: '08/17/2017',
           body: 'orange hair',
-          votes: 5,
-          topic: 'Trump\'s Hair',
-          side: 'against',
+          votes: 75,
+          debateTopic: 'Trump\'s Hair',
+          debateSide: 'against',
           user: 'Padme',
+          activeDebate: false,
         },
       ],
 
@@ -107,7 +112,7 @@ class Profile extends React.Component {
         <div className="container">
           <h1 className="title">Profile</h1>
           <h3 className="caption"> Who are you? </h3>
-          <div className="row" id="userInfo">
+          <div className="row col-md-9" id="userInfo">
             <UserInfo
               user={this.state.user}
               debates={this.state.debates}
