@@ -118,12 +118,13 @@ class Profile extends React.Component {
             />
           </div>
           <div className="row" id="Activity">
-            <div className="col-md-6" id="userDebates">
-              <UserDebates debates={this.state.debates} />
-            </div>
-            <div className="col-md-6" id="userArguments">
-              <UserArgs args={this.state.args} />
-              <div>Arg1</div>
+            <div className"activityContainer">
+              <div className="col-md-6" id="userDebates">
+                <UserDebates debates={this.state.debates} />
+              </div>
+              <div className="col-md-6" id="userArguments">
+                <UserArgs args={this.state.args} />
+              </div>
             </div>
           </div>
         </div>
