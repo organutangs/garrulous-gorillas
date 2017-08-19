@@ -14,12 +14,12 @@ router.post('/register', (req, res) => {
     });
     return false;
   }
-  
+
   const newUser = new User({
     username: req.body.username,
     password: req.body.password
   });
-  
+
   User.getUserByUsername(newUser.username, (err, user) => {
     if (err) throw err;
     if (user) {
@@ -73,6 +73,49 @@ router.post('/login', (req, res) => {
       res.status(401).json({
         success: false,
         msg: `Username ${req.body.username} not found`
+      });
+    }
+  });
+});
+
+//when a user adds a new argument, keep track of his created history
+router.put('/api/addArgToUser', (req, res) => {
+
+  let topic1 = req.body.topic;
+  let side1 = req.body.side;
+  let arg1 = req.body.argumentBody;
+  let userArg = req.body.user;
+  let obj = { body: arg1, topic: topic1, side: side1 };
+  //username {body, topic, side}
+  // to add a vote for
+  User.addUserArgument(userArg, obj, (err, data) => {
+    if (err) {
+      res.json({
+        success: false
+      });
+    } else if (data) {
+      res.json({
+        success: true,
+        data: data
+      });
+    }
+  });
+});
+
+//get all arguments a user has created
+router.get('/api/getArgFromUser', (req, res) => {
+
+  const user = req.query.username;
+
+  DebateArg.getUserArgs(user, (err, data) => {
+    if (err) {
+      res.json({
+        success: false
+      });
+    } else if (data) {
+      res.json({
+        success: true,
+        data: data.argument
       });
     }
   });

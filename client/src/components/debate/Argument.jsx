@@ -33,29 +33,32 @@ class Argument extends React.Component {
 
   //this increases the arguments votes
   handleVote() {
-    console.log('button click')
-    this.onButtonClick();
-    if (!this.state.voted) {
-    this.setState({
-      voted: !this.state.voted,
-      status: 'Received'
-    })
-    this.props.handleVote();
 
-    axios.put('http://127.0.0.1:3000/debates/api/addVoteToArgument', {
-      argument: this.props.argument
-    })
-    .then((response)=> {
-      this.setState({points: response.data.data.votes});
-      this.setState({voteCount: this.props.votes + 1});
-    })
-    .catch((err)=> {
-      console.log("error adding vote to arg", err);
-    });
+    console.log('button click');
+    this.onButtonClick();
+
+    if (!this.state.voted) {
+      this.setState({
+        voted: !this.state.voted,
+        status: 'Received'
+      })
+      this.props.handleVote();
+
+      axios.put('http://127.0.0.1:3000/debates/api/addVoteToArgument', {
+        argument: this.props.argument
+      })
+      .then((response)=> {
+        this.setState({points: response.data.data.votes});
+        this.setState({voteCount: this.props.votes + 1});
+      })
+      .catch((err)=> {
+        throw err;
+      });
     }
   }
 
   componentWillMount() {
+
 
   }
 
@@ -78,7 +81,7 @@ class Argument extends React.Component {
           <table>
             <tr>
               <td>{voteStatus}</td>
-              <td className={this.state.voteClass}>Votes: {this.state.voteCount}</td>
+              <td className={this.state.voteClass}>Votes: {this.props.votes}</td>
             </tr>
           </table>
         </form>
