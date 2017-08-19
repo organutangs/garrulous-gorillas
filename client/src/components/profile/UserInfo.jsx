@@ -38,17 +38,17 @@ class UserInfo extends React.Component {
       <div className="infoPadding">
         <div className="col-md-3 UserImage" >
           <div className="imgHolder">
-            <img src={this.props.user.img} width="128" height="128"></img>
+            <img id="ProfilePic" src={this.props.user.img} width="128" height="128"></img>
           </div>
           <div>
             <button>Edit</button>
           </div>
         </div>
         <div className="col-md-9 UserInfo">
-          <div className="row UserName">
-            Your Name
+          <div className="row UserName h4">
+            {this.props.user.name}
           </div>
-          <div className="row UserStats">
+          <div className="row UserStats h6">
             <div className="col-md-2 date">{this.props.user.createdDate}</div>
             <div className="col-md-1 numD">{this.props.debates.length}</div>
             <div className="col-md-1 numA">{this.props.args.length}</div>

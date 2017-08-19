@@ -1,4 +1,12 @@
 
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+    background-image: url(http://www.publicdomainpictures.net/pictures/220000/velka/white-bokeh-background-1493135167q8w.jpg);
+}
 
 .chat
 {
@@ -127,21 +135,50 @@ li.debate-item-style {
     color: #424242;
     font-family: chaparral-pro,Georgia,"Times New Roman",Times,serif;
     font-size: 40px;
-
-
+    overflow: auto;
+    height: 800px;
+    width: 50%;
 }
+
+styles.css:74
+
 /*Profile Page css*/
-
-.imgHolder {
-    width: 128px;
-    height: 128px;
-    background: aqua;
+div#userInfo {
+    height: 100%;
+   /* background: aliceblue;*/
 }
 
 .imgHolder {
     width: 128px;
     height: 128px;
-    background: aqua;
+    background: transparent;
+}
+
+
+img#ProfilePic {
+    border-radius: 50%;
+}
+
+.profile {
+    margin: 2% 1% 1% 3%;
+}
+
+.infoPadding {
+    margin: 3% 1% 1% 1%;
+}
+
+.date {
+    padding: 0;
+}
+
+.debItem {
+    padding: 1%;
+    margin: 1%;
+}
+
+.argItem {
+    padding: 1%;
+    margin: 1%;
 }
 /* Base */
 
@@ -176,10 +213,7 @@ td{
     padding:0 15px 0 15px;
 }
 
-div#userInfo {
-    height: 100%;
-    background: aliceblue;
-}
+
 
 .boxStandard
 {
