@@ -103,6 +103,8 @@ class Profile extends React.Component {
     };
   }
 
+
+
   componentDidMount() {
   }
 
@@ -118,7 +120,7 @@ class Profile extends React.Component {
             />
           </div>
           <div className="row" id="Activity">
-            <div className"activityContainer">
+            <div className="activityContainer">
               <div className="col-md-6" id="userDebates">
                 <UserDebates debates={this.state.debates} />
               </div>
