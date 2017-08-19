@@ -117,12 +117,12 @@ class Position extends React.Component {
           let topSortedHot= sortArgsByHot(args).slice(0, 10);
 
           let currentList;
-          if (this.state.currentFilter === "Top Voted") {
-            currentList = topSortedArgs;
+          if (this.state.currentFilter === "New") {
+            currentList = topSortedNew;
           } else if (this.state.currentFilter === "Hot") {
             currentList = topSortedHot;
           } else {
-            currentList = topSortedNew;
+            currentList = topSortedArgs;
           }
           //
           this.setState({
