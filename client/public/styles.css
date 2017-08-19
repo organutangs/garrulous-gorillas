@@ -77,7 +77,10 @@ ul {
 }
 
 li.debate-item-style {
-    padding: 0.3em 0em;
+    padding: 0.3em 0.3em;
+    border-radius: 5px 5px 5px 5px !important;
+    box-shadow: 0 0 5px 0 grey;
+    margin: 0.1em;
 }
 
 .landing {
@@ -134,14 +137,15 @@ li.debate-item-style {
 .debates {
     color: #424242;
     font-family: chaparral-pro,Georgia,"Times New Roman",Times,serif;
-    font-size: 40px;
+    font-size: 30px;
     overflow: auto;
-    height: 800px;
-    width: 50%;
+    height: 500px;
+ 
 }
 
-styles.css:74
-
+::-webkit-scrollbar { 
+    display: none; 
+}
 /*Profile Page css*/
 div#userInfo {
     height: 100%;
