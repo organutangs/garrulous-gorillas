@@ -47,10 +47,13 @@ class ArgItem extends React.Component {
       <div>
         <div>
           <div className="row">{this.props.arg.body}</div>
-          
           <div className="row">
-          <div className="col-md-2">Votes: {this.props.arg.votes}</div>
-
+            <div className="debateTopic">{this.props.arg.debateTopic}</div> 
+          </div>
+          <div className="row">
+            <div className="col-md-2">{this.props.arg.updated}</div>
+            <div className="col-md-2">Votes: {this.props.arg.votes}</div>
+            <div className="col-md-2">{this.props.arg.debateSide}</div>
           </div>
         </div>
       </div>
