@@ -32,6 +32,20 @@ class AddArgForm extends React.Component {
         console.log(err);
       });
 
+    axios.post('/api/addArgToUser', {
+      argumentBody: this.state.value,
+      topic: this.props.topic,
+      side: this.props.position.toLowerCase(),
+      user: localStorage.username
+    })
+    .then (response => {
+      console.log("This is response  ", response);
+      //pass response up ;
+    })
+    .catch(err=> {
+      console.log(err);
+    });
+
   }
 
   render() {

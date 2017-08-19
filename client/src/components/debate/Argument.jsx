@@ -17,23 +17,23 @@ class Argument extends React.Component {
   //this increases the arguments votes
   handleVote() {
     if (!this.state.voted) {
-    this.setState({
-      voted: !this.state.voted,
-      status: 'Received'
-    })
-    this.props.handleVote();
+      this.setState({
+        voted: !this.state.voted,
+        status: 'Received'
+      })
+      this.props.handleVote();
 
-    axios.put('http://127.0.0.1:3000/debates/api/addVoteToArgument', {
-      argument: this.props.argument
-    })
-    .then((response)=> {
-      console.log("this is response of a vote ***", response.data);
-      this.setState({points: response.data.data.votes});
-      this.setState({voteCount: this.props.votes + 1});
-    })
-    .catch((err)=> {
-      throw err;
-    });
+      axios.put('http://127.0.0.1:3000/debates/api/addVoteToArgument', {
+        argument: this.props.argument
+      })
+      .then((response)=> {
+        this.setState({points: response.data.data.votes});
+        this.setState({voteCount: this.props.votes + 1});
+      })
+      .catch((err)=> {
+        throw err;
+      });
+
     }
   }
 
