@@ -56,12 +56,12 @@ class UserInfo extends React.Component {
           </div>
           <div className="row UserDescription">
             <div className="description">{this.props.user.info}</div>
-            <form onSubmit={this.handleSubmit}>
-              <label>
+            <form style={{margin: "0px"}} onSubmit={this.handleSubmit}>
+              <label style={{display: "none"}} >
                 Edit your information:
                 <input type="text" value={this.state.value} onChange={this.handleChange} />
               </label>
-              <input type="submit" value="Submit" />
+              <input style={{margin: "0px"}} type="submit" value="Edit" />
             </form>
           </div>
         </div>
