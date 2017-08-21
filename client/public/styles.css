@@ -242,3 +242,8 @@ td{
     background: lightgray;
 }
 
+.newTopic {
+    /* display: inline-flex; */
+    margin: 3em;
+}
+
