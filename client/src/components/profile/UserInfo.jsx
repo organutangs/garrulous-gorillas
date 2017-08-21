@@ -35,17 +35,20 @@ class UserInfo extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="infoPadding">
         <div className="col-md-3 UserImage" >
           <div className="imgHolder">
-            <img src={this.props.user.img} width="128" height="128"></img>
+            <img id="ProfilePic" src={this.props.user.img} width="128" height="128"></img>
+          </div>
+          <div>
+            <button>Edit</button>
           </div>
         </div>
         <div className="col-md-9 UserInfo">
-          <div className="row UserName">
-            Your Name
+          <div className="row UserName h4">
+            {this.props.user.name}
           </div>
-          <div className="row UserStats">
+          <div className="row UserStats h6">
             <div className="col-md-2 date">{this.props.user.createdDate}</div>
             <div className="col-md-1 numD">{this.props.debates.length}</div>
             <div className="col-md-1 numA">{this.props.args.length}</div>
@@ -53,12 +56,12 @@ class UserInfo extends React.Component {
           </div>
           <div className="row UserDescription">
             <div className="description">{this.props.user.info}</div>
-            <form onSubmit={this.handleSubmit}>
-              <label>
+            <form style={{margin: "0px"}} onSubmit={this.handleSubmit}>
+              <label style={{display: "none"}} >
                 Edit your information:
                 <input type="text" value={this.state.value} onChange={this.handleChange} />
               </label>
-              <input type="submit" value="Submit" />
+              <input style={{margin: "0px"}} type="submit" value="Edit" />
             </form>
           </div>
         </div>

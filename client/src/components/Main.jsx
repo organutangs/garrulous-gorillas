@@ -71,12 +71,12 @@ class Main extends React.Component {
 
     if (!debateIsSelected) {
       return (
-        <div>
+        <div className ='col-md-6'>
         <h4>List of Debates</h4>
         <div className="newTopic">
             <h5>Create New Topic</h5>
-            <form>
-              <input type="text" name="topic" onChange={(e)=>{this.handleNewTopic(e.target.value)}} />
+            <form style={{margin: "0px"}}>
+              <input style={{margin: "0px"}} type="text" name="topic" onChange={(e)=>{this.handleNewTopic(e.target.value)}} />
               <button className={this.state.buttonClass} onClick={(e)=>{this.newDebate.call(this, this.state.newTopic)}}>Create Topic</button>
             </form>
           </div>
@@ -84,12 +84,12 @@ class Main extends React.Component {
         { this.state.debates.map( (debate, i) => <DebateItem debate={debate} key={i} debateSelectHandler={this.props.debateSelectHandler} /> ) }
         </ul>
         <Switch>
-        { this.state.debates.map( (debate, i) => 
+        { this.state.debates.map( (debate, i) =>
           <Route path={`debates/${debate.topic.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '').toLowerCase()}`} component={DebateFloor} key={i} /> ) }
         </Switch>
-          
+
         </div>
-        
+
       )
 
     } else {
